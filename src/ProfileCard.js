@@ -1,9 +1,8 @@
 import * as React from "react";
-import Card from "@mui/joy/Card";
-import Typography from "@mui/joy/Typography";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
 class ProfileCard extends React.Component {
 
@@ -22,13 +21,10 @@ class ProfileCard extends React.Component {
             </Typography>
             <Typography level="body2">April 24 to May 02, 2021</Typography>
           </Box>
-
-          <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
             <img
               src={this.props.imgSrc}
               alt="Profile pic"
             />
-          </AspectRatio>
           <Box sx={{ display: "flex" }}>
             <div>
               <Typography level="body3">Total price:</Typography>
