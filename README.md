@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Project Prep - Coin Fellows
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: Junyoung Son, Brandon Pitts, Luis Rosales, Robert Shepley
 
-## Available Scripts
+**Version**: 0.1.0
 
-In the project directory, you can run:
+[GitHub - CoinFellows (Main)](https://github.com/orgs/coinfellows/repositories)
 
-### `npm start`
+[GitHub - CoinFellows (App)](https://github.com/coinfellows/client)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[GitHub - CoinFellows (Server)](https://github.com/coinfellows/server)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Miro - Project Management Board](https://miro.com/app/board/uXjVPaG79C4=/?share_link_id=474824069726)
 
-### `npm test`
+## Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project we are building a CRUD app that works with Crypto currencies and will display coin cost in USD/Satoshis and some historical data.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Team Github Repository created - ---Windows Extreme Coin Fellows, 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Miro - Team WRRC board created,
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Architecture
 
-### `npm run eject`
+React, Mongoose, MongoDB, Axios, Express, Node.js, Material.ui, 0Auth, 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Change Log
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+09-02-2022 3:30pm - Team github created, ReadMe updated. WRRC created, Ideas noted. Team name changed from Windwos Extreme to Coin Fellows.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+09-05-2022 11:31am - React App & Server created and pushed upto Repo, User Stories created.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Credit and Collaborations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Robert,
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Luis,
 
-### Code Splitting
+Brandon,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Jun,
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Estimates
 
-### Making a Progressive Web App
+09/02/2022
+Name of feature: Windows Extreme
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Estimate of time needed to complete: 3 hours
 
-### Advanced Configuration
+Start time: 11:00am
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Finish time: 3:30pm
 
-### Deployment
+Actual time needed to complete:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+09/05/2022
+Name of feature: Coin Fellows
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Estimate of time needed to complete: 3 hours
+
+Start time: 10:00am
+
+Finish time: 3:30pm
+
+Actual time needed to complete:
+
+---
