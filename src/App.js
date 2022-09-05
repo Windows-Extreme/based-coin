@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import { useAuth0 } from '@auth0/auth0-react';
+import React from 'react'
+import { Route, Routes } from "react-router-dom";
+import { ProtectedRoute } from "./components/protected-route.js";
+import { PublicPage } from './pages/public-page.js';
+import { HomePage } from './pages/home-page.js';
 import './App.css';
 
 function App() {
+  const {
+    isLoading,
+    error,
+  } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  if (error) {
+    return <div>Oops... {error.message}</div>
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      <Route path='/' element={<PublicPage/>} />
+      <Route path='/home' element={<ProtectedRoute component={HomePage} />} />
+    </Routes>
+  )
 }
 
 export default App;
