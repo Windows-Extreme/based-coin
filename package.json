@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@auth0/auth0-react": "^1.10.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+=======
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/joy": "^5.0.0-alpha.43",
+>>>>>>> b4cf1de (About us page template -Jun)
     "@mui/material": "^5.10.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
