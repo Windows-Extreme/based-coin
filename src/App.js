@@ -4,8 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/protected-route.js";
 import { PublicPage } from './pages/public-page.js';
 import { HomePage } from './pages/home-page.js';
-// import AboutUs from './AboutUs';
 import './App.css';
+import AboutUs from './AboutUs.js';
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
     <Routes>
       <Route path='/' element={<PublicPage/>} />
       <Route path='/home' element={<ProtectedRoute component={HomePage} />} />
+      <Route path='/about' element={<AboutUs/>} />
     </Routes>
   )
 }
