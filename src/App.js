@@ -24,7 +24,7 @@ function App() {
     <Routes>
       <Route path='/' element={<PublicPage/>} />
       <Route path='/home' element={<ProtectedRoute component={HomePage} />} />
-      <Route path='/about' element={<AboutUs/>} />
+      <Route path='/about' element={<AboutUs />} />
     </Routes>
   )
 }

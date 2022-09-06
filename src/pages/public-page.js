@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { PageLayout } from '../components/page-layout';
+import { UnsignedLayout } from '../components/unsigned-layout';
 
 export const PublicPage = () => {
-
   return (
-    <PageLayout>
+    <UnsignedLayout>
       <div>Hello World!</div>
-    </PageLayout>
+    </UnsignedLayout>
   )
 }
