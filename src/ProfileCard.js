@@ -7,7 +7,6 @@ import { CardActionArea } from "@mui/material";
 
 class ProfileCard extends React.Component {
   render() {
-    console.log(this.props.image)
     return (
       <>
         <Card sx={{ maxWidth: 345 }}>

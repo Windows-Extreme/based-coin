@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -20,6 +21,8 @@ const darkTheme = createTheme({
 export function PageLayout({ children }) {
 
   const drawerWidth = 85;
+  const { user, isAuthenticated } = useAuth0();
+  console.log(user)
   return (
     <Box sx={{ display: 'flex' }}>
       <ThemeProvider theme={darkTheme}>

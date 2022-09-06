@@ -12,7 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Logout from '@mui/icons-material/Logout';
 
 export const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,7 +22,8 @@ export const Navbar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   }
-  const { isAuthenticated } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
+  console.log(user.picture)
   return (
     <Toolbar>
 
@@ -45,7 +45,7 @@ export const Navbar = () => {
           onClick={handleClick}
           size='small'
           sx={{ ml: 2}}>
-            <Avatar sx={{ width: 32, height: 32}}>M</Avatar>
+          <Avatar sx={{ width: 40, height: 40}} alt={user.name} src={user.picture}></Avatar>
         </IconButton>   
       </Tooltip>
       <Menu
