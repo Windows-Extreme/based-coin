@@ -14,7 +14,7 @@ root.render(
         domain={process.env.REACT_APP_AUTH0_DOMAIN}
         clientId={process.env.REACT_APP_AUTH0_CLIENTID}
         redirectUri={window.location.origin}
-        audience='https://dev-8rwxsx7b.us.auth0.com/api/v2/'
+        audience={process.env.REACT_APP_AUTH0_AUDIENCE}
         scope='read:current_user update:current_user_metadata'
       >
       <App />

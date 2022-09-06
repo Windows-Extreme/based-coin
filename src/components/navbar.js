@@ -19,30 +19,34 @@ export const Navbar = () => {
     setAnchorEl(null);
   }
   const { user, isAuthenticated } = useAuth0();
-  console.log(user.picture)
   return (
     <Toolbar>
 
       {isAuthenticated && (
         <>
-        <Button color='inherit'
-          component={Link}
-          to='/home'
+          <Button color='inherit'
+            component={Link}
+            to='/home'
           >Home</Button>
         </>
       )}
       <Button
         color='inherit'
         component={Link}
+        to='/market'
+      >Market</Button>
+      <Button
+        color='inherit'
+        component={Link}
         to='/about'
-        >Meet the Fellows</Button>
+      >Meet the Fellows</Button>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}
           size='small'
-          sx={{ ml: 2}}>
-          <Avatar sx={{ width: 40, height: 40}} alt={user.name} src={user.picture}></Avatar>
-        </IconButton>   
+          sx={{ ml: 2 }}>
+          <Avatar sx={{ width: 40, height: 40 }} alt={user.name} src={user.picture}></Avatar>
+        </IconButton>
       </Tooltip>
       <Menu
         anchorEl={anchorEl}
