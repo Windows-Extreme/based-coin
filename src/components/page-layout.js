@@ -8,6 +8,8 @@ import ToolBar from '@mui/material/Toolbar'
 import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import { Navbar } from './navbar';
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button'
 
 const darkTheme = createTheme({
   palette: {
@@ -16,6 +18,7 @@ const darkTheme = createTheme({
 });
 
 export function PageLayout({ children }) {
+
   const drawerWidth = 85;
   return (
     <Box sx={{ display: 'flex' }}>
@@ -38,7 +41,14 @@ export function PageLayout({ children }) {
           }}
           variant="permanent"
           anchor="left"
-        ></Drawer>
+        >
+        <Button
+          component={Link}
+          to='/'
+          >
+          <img src="/logo.svg" alt="logo" height={40}/>
+        </Button>
+        </Drawer>
         <Box
           component='main'
           sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
