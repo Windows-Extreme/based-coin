@@ -4,27 +4,31 @@
       "image_url": "/img/RobertProImg.jpg",
       "name": "Robert Shepley",
       "description": "A unicorn and a narwhal nuzzling their horns",
-      "keyword": "narwhal"
+      "linkedin": "rhino",
+      "github": "rhino"
     },
     {
       "_id": 2,
       "image_url": "/img/LuisProImg.jpg",
       "name": "Luis Rosales",
       "description": "Mother (or father) rhino with two babies",
-      "keyword": "rhino"
+      "linkedin": "rhino",
+      "github": "rhino"
     },
     {
       "_id": 3,
       "image_url": "/img/BrandonProImg.jpg",
       "name": "Brandon Pitts",
       "description": "Someone wearing a creepy unicorn head mask",
-      "keyword": "unicorn"
+      "linkedin": "rhino",
+      "github": "rhino"
     },
     {
       "_id": 4,
       "image_url": "/img/JunProImg.jpg",
       "name": "Junyoung Son",
       "description": "Lego figurine dressed in a unicorn outfit",
-      "keyword": "unilego"
+      "linkedin": "https://www.linkedin.com/in/junyoung-son-g/",
+      "github": "https://github.com/Junyoungson808"
     }
 ]
