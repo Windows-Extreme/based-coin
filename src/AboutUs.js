@@ -12,7 +12,8 @@ class AboutUs extends React.Component {
               image={value.image_url}
               name={value.name}
               description={value.description}
-              keyword={value.keyword}
+              linkedin={value.linkedin}
+              github={value.github}
             />
         );
     });

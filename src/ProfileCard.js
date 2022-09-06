@@ -4,6 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 class ProfileCard extends React.Component {
   render() {
@@ -23,8 +26,23 @@ class ProfileCard extends React.Component {
               </Typography>
               <Typography variant="body2" color="text.secondary">
               {this.props.description}
-              {this.props.keyword}
               </Typography>
+              <Typography variant="body2" color="text.secondary">
+
+              </Typography>
+
+              <IconButton color='inherit'
+              component='a'
+              href={this.props.linkedin}>
+                <LinkedInIcon></LinkedInIcon>
+              </IconButton>
+              
+              <IconButton color='inherit'
+              component='a'
+              href={this.props.github}>
+                <GitHubIcon></GitHubIcon>
+              </IconButton>
+
             </CardContent>
           </CardActionArea>
         </Card>
