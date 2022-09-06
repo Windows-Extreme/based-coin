@@ -6,6 +6,7 @@ import { PublicPage } from './pages/public-page.js';
 import { HomePage } from './pages/home-page.js';
 import './App.css';
 import AboutUs from './pages/about-page.js';
+import { MarketPage } from './pages/market-page.js';
 
 function App() {
   const {
@@ -24,6 +25,7 @@ function App() {
       <Route path='/' element={<PublicPage/>} />
       <Route path='/home' element={<ProtectedRoute component={HomePage} />} />
       <Route path='/about' element={<AboutUs />} />
+      <Route path='/market' element={<MarketPage />} />
     </Routes>
   )
 }
