@@ -4,7 +4,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline'
 import AppBar from '@mui/material/AppBar'
 import ToolBar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import { UnsignedNavbar } from './unsigned-navbar';
 
 const darkTheme = createTheme({
