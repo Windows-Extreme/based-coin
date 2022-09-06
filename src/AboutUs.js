@@ -1,10 +1,7 @@
 import React from "react";
 import ProfileCard from './ProfileCard';
 import DevProfiles from './DevProfiles.json';
-
-
-
-
+import {UnsignedLayout} from './components/unsigned-layout';
 
 class AboutUs extends React.Component {
 
@@ -25,7 +22,9 @@ class AboutUs extends React.Component {
 
     return (
       <>
-        {this.profile}
+        <UnsignedLayout>
+          {this.profile}
+        </UnsignedLayout>
       </>
     );
   }
