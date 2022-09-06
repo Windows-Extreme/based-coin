@@ -16,7 +16,7 @@ const darkTheme = createTheme({
 });
 
 export function PageLayout({ children }) {
-  const drawerWidth = 240;
+  const drawerWidth = 200;
   return (
     <Box sx={{ display: 'flex' }}>
       <ThemeProvider theme={darkTheme}>
