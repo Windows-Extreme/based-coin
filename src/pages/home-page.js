@@ -47,8 +47,8 @@ export const HomePage = () => {
   console.log(userWatchList)
   
 
-  function createData(name, Coin, Price, Market, Watch) {
-    return { name, Coin, Price, Market, Watch };
+  function createData(name, Coin, Price, Market, watch) {
+    return { name, Coin, Price, Market, watch };
   }
   const rows = [
     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
@@ -63,10 +63,9 @@ export const HomePage = () => {
 
 
   return (
+    isAuthenticated && (
     <PageLayout>
       <div>Hello world!</div>
-
-  
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -96,13 +95,7 @@ export const HomePage = () => {
         </TableBody>
       </Table>
     </TableContainer>
-
-
-
-
-
     </PageLayout>
-
-
+    )
   )
 }
