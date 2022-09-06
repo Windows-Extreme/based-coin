@@ -20,7 +20,7 @@ export const UnsignedNavbar = () => {
         color='inherit'
         component={Link}
         to='/about'
-        >About Us</Button>
+        >Meet the Fellows</Button>
       <LoginButton />
       <SignupButton />
     </Toolbar>

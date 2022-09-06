@@ -39,7 +39,7 @@ export const Navbar = () => {
         color='inherit'
         component={Link}
         to='/about'
-        >About Us</Button>
+        >Meet the Fellows</Button>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}
