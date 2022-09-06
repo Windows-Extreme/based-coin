@@ -18,13 +18,14 @@ This project we are building a CRUD app that works with Crypto currencies and wi
 
 ## Getting Started
 
-Team Github Repository created - ~~Windows Extreme~~ Coin Fellows,
+Team Github Repository created - <s>Windows Extreme</s> Coin Fellows, 
+
 
 Miro - Team WRRC board created,
 
 ## Architecture
 
-React, Mongoose, MongoDB, Axios, Express, Node.js, Material.ui, 0Auth,
+React, Mongoose, MongoDB, Axios, Express, Node.js, Material.ui, 0Auth, 
 
 ## Change Log
 
