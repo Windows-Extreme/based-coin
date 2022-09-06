@@ -8,9 +8,8 @@ import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import { Navbar } from './navbar';
 
-const drawerWidth = 240;
-
 export const PageLayout = ({ children }) => {
+  const drawerWidth = 240;
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />

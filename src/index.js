@@ -4,19 +4,20 @@ import './index.css';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { BrowserRouter } from 'react-router-dom';
+import { Auth0ProviderWithRedirectCallback } from './Auth0ProviderWithRedirectCallback';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Auth0Provider
+      <Auth0ProviderWithRedirectCallback
         domain={process.env.REACT_APP_AUTH0_DOMAIN}
         clientId={process.env.REACT_APP_AUTH0_CLIENTID}
         redirectUri={window.location.origin}
       >
       <App />
-      </Auth0Provider>
+      </Auth0ProviderWithRedirectCallback>
     </BrowserRouter>
   </React.StrictMode>
 );
-

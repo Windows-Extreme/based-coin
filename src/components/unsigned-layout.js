@@ -22,6 +22,7 @@ export const UnsignedLayout = ({ children }) => {
         component='main'
         sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
       >
+        <ToolBar />
         {children}
       </Box>
     </Box>

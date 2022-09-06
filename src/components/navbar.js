@@ -20,6 +20,10 @@ export const Navbar = () => {
       {isAuthenticated && (
         <>
         <LogoutButton />
+        <NavLink
+        to='/home'
+        end
+        >Home</NavLink>
         </>
       )}
       <NavLink
