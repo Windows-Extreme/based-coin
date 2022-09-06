@@ -1,47 +1,33 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
+import React from "react";
+import { Card } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { CardActionArea } from "@mui/material";
 
 class ProfileCard extends React.Component {
-
-
   render() {
+    console.log(this.props.image)
     return (
       <>
-        <Card variant="outlined" sx={{ minWidth: "320px" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
-            <Typography
-              level="h2"
-              fontSize="md"
-              sx={{ alignSelf: "flex-start" }}
-            >
-              Person 1
-            </Typography>
-            <Typography level="body2">April 24 to May 02, 2021</Typography>
-          </Box>
-            <img
-              src={this.props.imgSrc}
-              alt="Profile pic"
+        <Card sx={{ maxWidth: 345 }}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="200"
+              image={this.props.image}
+              alt="Profile Picture"
             />
-          <Box sx={{ display: "flex" }}>
-            <div>
-              <Typography level="body3">Total price:</Typography>
-              <Typography fontSize="lg" fontWeight="lg">
-                lorem ipsom
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+              {this.props.name}
               </Typography>
-            </div>
-            <Button
-              variant="solid"
-              size="sm"
-              color="primary"
-              aria-label="Explore Bahamas Islands"
-              sx={{ ml: "auto", fontWeight: 600 }}
-            >
-              Explore
-            </Button>
-          </Box>
+              <Typography variant="body2" color="text.secondary">
+              {this.props.description}
+              {this.props.keyword}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
         </Card>
       </>
     );
