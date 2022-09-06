@@ -1,15 +1,11 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
-import { SignupButton } from './navbuttons/signup-button'
-import { LoginButton } from './navbuttons/login-button';
 import { LogoutButton } from './navbuttons/logout-button';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button'
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 
