@@ -20,6 +20,7 @@ This project we are building a CRUD app that works with Crypto currencies and wi
 
 Team Github Repository created - <s>Windows Extreme</s> Coin Fellows, 
 
+
 Miro - Team WRRC board created,
 
 ## Architecture
