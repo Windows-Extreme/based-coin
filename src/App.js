@@ -7,7 +7,6 @@ import { HomePage } from './pages/home-page.js';
 import './App.css';
 import AboutUs from './AboutUs.js';
 
-
 function App() {
   const {
     isLoading,
