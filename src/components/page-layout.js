@@ -6,8 +6,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline'
 import AppBar from '@mui/material/AppBar'
 import ToolBar from '@mui/material/Toolbar'
-import List from '@mui/material/List'
-import Typography from '@mui/material/Typography'
 import { Navbar } from './navbar';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button'
@@ -21,10 +19,10 @@ const darkTheme = createTheme({
 export function PageLayout({ children }) {
 
   const drawerWidth = 85;
-  const { user, isAuthenticated } = useAuth0();
-  console.log(user)
+  const { isAuthenticated } = useAuth0();
   return (
     <Box sx={{ display: 'flex' }}>
+    {isAuthenticated && (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <AppBar
@@ -60,6 +58,7 @@ export function PageLayout({ children }) {
           {children}
         </Box>
       </ThemeProvider>
+    )}
     </Box>
   )
 }
