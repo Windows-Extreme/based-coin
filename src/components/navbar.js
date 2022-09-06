@@ -4,7 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { SignupButton } from './navbuttons/signup-button'
 import { LoginButton } from './navbuttons/login-button';
 import { LogoutButton } from './navbuttons/logout-button';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button'
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth0();
@@ -20,16 +21,17 @@ export const Navbar = () => {
       {isAuthenticated && (
         <>
         <LogoutButton />
-        <NavLink
+        <Button color='inherit'
+        component={Link}
         to='/home'
-        end
-        >Home</NavLink>
+        >Home</Button>
         </>
       )}
-      <NavLink
+      <Button
+        color='inherit'
+        component={Link}
         to='/about'
-        end
-        >About Us</NavLink>
+        >About Us</Button>
     </Toolbar>
   )
 }
