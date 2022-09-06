@@ -19,7 +19,6 @@ export const Navbar = () => {
     setAnchorEl(null);
   }
   const { user, isAuthenticated } = useAuth0();
-  console.log(user.picture)
   return (
     <Toolbar>
 

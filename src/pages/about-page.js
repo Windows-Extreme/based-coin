@@ -1,7 +1,7 @@
 import React from "react";
-import ProfileCard from './ProfileCard';
-import DevProfiles from './DevProfiles.json';
-import {UnsignedLayout} from './components/unsigned-layout';
+import ProfileCard from '../ProfileCard';
+import DevProfiles from '../DevProfiles.json';
+import {UnsignedLayout} from '../components/unsigned-layout';
 
 class AboutUs extends React.Component {
 

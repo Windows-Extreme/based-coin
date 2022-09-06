@@ -5,7 +5,7 @@ import { ProtectedRoute } from "./components/protected-route.js";
 import { PublicPage } from './pages/public-page.js';
 import { HomePage } from './pages/home-page.js';
 import './App.css';
-import AboutUs from './AboutUs.js';
+import AboutUs from './pages/about-page.js';
 
 function App() {
   const {
