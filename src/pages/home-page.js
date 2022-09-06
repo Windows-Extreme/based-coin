@@ -35,7 +35,6 @@ export const HomePage = () => {
     
   }, [getAccessTokenSilently, user?.sub]);
 
-  console.log(userWatchList)
   return (
     isAuthenticated && (
       <PageLayout>
