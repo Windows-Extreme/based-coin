@@ -22,8 +22,8 @@ class AboutUs extends React.Component {
     return (
       <>
         <UnsignedLayout>
-          <Box sx={{width: "100%"}}>
-          <Typography sx={{ align: "center", maxWidth: "100rem", }}>
+          <Box sx={{width: "100%", textAlign: "center", maxWidth: 500, }}>
+          <Typography align = "center" variant= "body1" gutterBottom >
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
             humour, or randomised words which don't look even slightly
