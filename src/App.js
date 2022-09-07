@@ -8,6 +8,7 @@ import './App.css';
 import AboutUs from './pages/about-page.js';
 import { MarketPage } from './pages/market-page.js';
 import axios from 'axios';
+import { CoinPage } from './pages/coin-page.js';
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
       <Route path='/home' element={<HomePage userData={userData} handleBookmark={handleBookmark}/>} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='/market' element={<MarketPage userData={userData} handleBookmark={handleBookmark}/>} />
+      <Route path='/coin' element={<CoinPage />} />
     </Routes>
   )
 }

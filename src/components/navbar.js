@@ -21,12 +21,16 @@ export const Navbar = () => {
   const { user } = useAuth0();
   return (
     <Toolbar>
-
       <Button
         color='inherit'
         component={Link}
         to='/about'
       >Meet the Fellows</Button>
+       <Button
+        color='inherit'
+        component={Link}
+        to='/coin'
+      >Coin</Button>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}
