@@ -2,7 +2,7 @@ import React from "react";
 import ProfileCard from "../ProfileCard";
 import DevProfiles from "../DevProfiles.json";
 import { UnsignedLayout } from "../components/unsigned-layout";
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Typography, Container } from "@mui/material";
 
 class AboutUs extends React.Component {
   profile = DevProfiles.map((value) => {
@@ -22,7 +22,11 @@ class AboutUs extends React.Component {
     return (
       <>
         <UnsignedLayout>
-          <Box sx={{width: "100%", textAlign: "center", maxWidth: 500, }}>
+
+          <Container sx={{ textAlign: "center", maxWidth: 500 }}>
+          <Typography align = "center" variant= "h3" gutterBottom >
+            Coin Fellows
+          </Typography>
           <Typography align = "center" variant= "body1" gutterBottom >
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
@@ -37,7 +41,8 @@ class AboutUs extends React.Component {
             Ipsum is therefore always free from repetition, injected humour, or
             non-characteristic words etc.
           </Typography>
-          </Box>
+          </Container>
+
           <Grid
             sx={{
               justifyContent: "space-evenly",
