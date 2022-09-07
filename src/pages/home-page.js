@@ -14,6 +14,21 @@ import axios from 'axios';
 export const HomePage = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userWatchList, setUserWatchList] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const initUser = async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   const getUserWatchList = useCallback(async () => {
     try {
@@ -32,11 +47,12 @@ export const HomePage = () => {
     
   }, [getAccessTokenSilently])
 
-
+  useEffect(() => {
+    initUser();
+  })
   useEffect(() => {
     getUserWatchList();
   }, [getUserWatchList]);
-
 
   console.log(userWatchList)  
 
