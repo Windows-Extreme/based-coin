@@ -34,12 +34,17 @@ export const Navbar = () => {
         color='inherit'
         component={Link}
         to='/market'
-      >Market</Button>
+      >Market</Button>     
       <Button
         color='inherit'
         component={Link}
         to='/about'
       >Meet the Fellows</Button>
+       <Button
+        color='inherit'
+        component={Link}
+        to='/coin'
+      >Coin</Button>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}
