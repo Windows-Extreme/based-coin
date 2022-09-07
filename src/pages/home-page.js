@@ -53,7 +53,6 @@ export const HomePage = () => {
   useEffect(() => {
     getUserWatchList();
   }, [getUserWatchList]);
-
   console.log(userWatchList)  
 
   function createData(name, Price, Changed, Market, watch) {

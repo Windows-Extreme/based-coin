@@ -21,6 +21,24 @@ import numeral from 'numeral'
   export const MarketPage = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [marketList, setMarketList] = useState(null);
+  const [userData, setUserData] = useState(null);
+  
+  const getUserData = useCallback(async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      let response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      const responseData = response.data;
+      console.log(responseData)
+      setUserData(responseData);
+    } catch (error) {
+      console.error(error.message)
+    }
+  }, [getAccessTokenSilently])
   
   const getMarketList = useCallback(async () => {
     try {
@@ -32,6 +50,7 @@ import numeral from 'numeral'
           },
         });
       const responseData = response.data;
+      console.log(responseData)
       setMarketList(responseData);
     } catch (error) {
       console.error(error.message)
@@ -39,11 +58,45 @@ import numeral from 'numeral'
   }, [getAccessTokenSilently])
 
   // Run these whenever the page mounts
+  useEffect(() => {
+    getUserData();
+  }, [getUserData])
 
   useEffect(() => {
     getMarketList();
   }, [getMarketList])
-  
+
+  const handleBookmark = async (id) => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      if (userData.watchlist.some(coin => coin._id === id)) {
+        await axios.delete(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            data: {
+              coinId: id
+            }
+          });
+      } else {
+        await axios.post(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+        {
+          coinId: id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      }
+      getUserData();
+    } catch (error) {
+      console.error('Error in handleBookmark:', error)
+    }
+    console.log(id)
+  }
+
   return (
 
     isAuthenticated && (    
@@ -124,8 +177,9 @@ import numeral from 'numeral'
                 </Typography>
                 </TableCell>
               <TableCell align="right">
-                <IconButton>
-                  {row.isFavorited ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
+                {/* Bookmark icon button */}
+                <IconButton onClick={() => handleBookmark(row.id)}>
+                  {userData?.watchlist.some(coin => coin._id === row.id) ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
                 </IconButton>
               </TableCell>
             </TableRow>
