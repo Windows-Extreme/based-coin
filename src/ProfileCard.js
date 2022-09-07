@@ -9,9 +9,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 class ProfileCard extends React.Component {
+  
   render() {
     return (
       <>
+
         <Card sx={{ maxWidth: 345 }}>
           <CardActionArea>
             <CardMedia
@@ -22,27 +24,28 @@ class ProfileCard extends React.Component {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-              {this.props.name}
+                {this.props.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-              {this.props.description}
+                {this.props.description}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary"></Typography>
 
-              </Typography>
-
-              <IconButton color='inherit'
-              component='a'
-              href={this.props.linkedin}>
+              <IconButton
+                color="inherit"
+                component="a"
+                href={this.props.linkedin}
+              >
                 <LinkedInIcon></LinkedInIcon>
               </IconButton>
-              
-              <IconButton color='inherit'
-              component='a'
-              href={this.props.github}>
+
+              <IconButton
+                color="inherit"
+                component="a"
+                href={this.props.github}
+              >
                 <GitHubIcon></GitHubIcon>
               </IconButton>
-
             </CardContent>
           </CardActionArea>
         </Card>
