@@ -19,24 +19,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
   export const MarketPage = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [marketList, setMarketList] = useState(null);
-  const [userWatchList, setUserWatchList] = useState(null);
-
-  const getUserWatchList = useCallback(async () => {
-    try {
-      const accessToken = await getAccessTokenSilently();
-      let response = await fetch(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-      response = await response.json();
-      setUserWatchList(response)
-    } catch (error) {
-      console.error(error.message)
-    }
-    
-  }, [getAccessTokenSilently])
+  
   const getMarketList = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();
@@ -54,9 +37,6 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
   }, [getAccessTokenSilently])
 
   // Run these whenever the page mounts
-  useEffect(() => {
-    getUserWatchList();
-  }, [getUserWatchList]);
 
   useEffect(() => {
     getMarketList();

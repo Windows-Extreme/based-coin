@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { PageLayout } from '../components/page-layout';
 import Table from '@mui/material/Table';
@@ -11,41 +11,33 @@ import Paper from '@mui/material/Paper';
 
 
 export const HomePage = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userWatchList, setUserWatchList] = useState(null);
+
+  const getUserWatchList = useCallback(async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      let response = await fetch(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      response = await response.json();
+      setUserWatchList(response)
+    } catch (error) {
+      console.error(error.message)
+    }
+    
+  }, [getAccessTokenSilently])
 
 
   useEffect(() => {
-    const getUserWatchList = async () => {
-      const domain = process.env.REACT_APP_AUTH0_SERVER_URL;
-
-      try {
-        const accessToken = await getAccessTokenSilently();
-
-        // Maybe refactor this later using Axios?
-        const response = await fetch(
-          `${domain}/user`, 
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-          },
-        });
-
-        const user_metadata = await response.json();
-
-        setUserWatchList(user_metadata);
-
-      } catch (e) {
-        console.error(e.message);
-      }
-    };
-
     getUserWatchList();
-    
-  }, [getAccessTokenSilently]);
+  }, [getUserWatchList]);
 
-  console.log(userWatchList)
-  
+
+  console.log(userWatchList)  
 
   function createData(name, Price, Changed, Market, watch) {
     return { name, Price, Changed, Market, watch };
