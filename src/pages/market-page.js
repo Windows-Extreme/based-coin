@@ -117,7 +117,7 @@ import numeral from 'numeral'
                   {numeral(row.percentage_change_24h / 100).format('0.00%')}
                 </Typography>
               </TableCell>
-              <TableCell align="right" textTransform='uppercase'>
+              <TableCell align="right">
                 <Typography textTransform='uppercase'>
                   {numeral(row.marketCap).format('$0.00a')}
                 </Typography>

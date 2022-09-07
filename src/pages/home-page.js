@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import axios from 'axios';
 
 
 export const HomePage = () => {
@@ -17,14 +18,14 @@ export const HomePage = () => {
   const getUserWatchList = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();
-      let response = await fetch(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
+      let response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/watchlist`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-      response = await response.json();
-      setUserWatchList(response)
+      const responseData = response.data;
+      setUserWatchList(responseData)
     } catch (error) {
       console.error(error.message)
     }
@@ -49,10 +50,6 @@ export const HomePage = () => {
     createData('Ethereum', 1566.3, -3.14415, 188840022196, 4.3),
     createData('Solana', 30.93, -3.55184, 10835105918, 3.9),
   ];
-  
-
-  
-
 
   return (
     isAuthenticated && (
