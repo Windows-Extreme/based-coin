@@ -24,14 +24,14 @@ export const HomePage = () => {
 
         // Maybe refactor this later using Axios?
         const response = await fetch(
-          `${domain}/protected`, 
+          `${domain}/user`, 
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
           },
         });
 
-        const user_metadata = await response;
+        const user_metadata = await response.json();
 
         setUserWatchList(user_metadata);
 
@@ -42,7 +42,7 @@ export const HomePage = () => {
 
     getUserWatchList();
     
-  }, [getAccessTokenSilently, user?.sub]);
+  }, [getAccessTokenSilently]);
 
   console.log(userWatchList)
   
