@@ -14,6 +14,7 @@ import { Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import axios from 'axios';
 import numeral from 'numeral'
 
 
@@ -24,14 +25,14 @@ import numeral from 'numeral'
   const getMarketList = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();
-      let response = await fetch(`${process.env.REACT_APP_AUTH0_SERVER_URL}/market`,
+      let response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/market`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-      response = await response.json();
-      setMarketList(response);
+      const responseData = response.data;
+      setMarketList(responseData);
     } catch (error) {
       console.error(error.message)
     }
