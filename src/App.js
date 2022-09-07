@@ -16,7 +16,8 @@ function App() {
   const {
     isLoading,
     error,
-    getAccessTokenSilently
+    getAccessTokenSilently,
+    isAuthenticated
   } = useAuth0();
 
   const getUserData = useCallback(async () => {
@@ -37,13 +38,15 @@ function App() {
   }, [getAccessTokenSilently])
 
   useEffect(() => {
-    getUserData();
-  }, [getUserData])
+    if (isAuthenticated) {
+      getUserData();
+    }
+  }, [getUserData, isAuthenticated])
 
   const handleBookmark = async (id) => {
     try {
       const accessToken = await getAccessTokenSilently();
-      if (userData.watchlist.some(coin => coin._id === id)) {
+      if (userData?.watchlist.some(coin => coin._id === id)) {
         await axios.delete(`${process.env.REACT_APP_AUTH0_SERVER_URL}/user`,
           {
             headers: {
