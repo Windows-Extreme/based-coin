@@ -14,6 +14,7 @@ import { Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import numeral from 'numeral'
 
 
   export const MarketPage = () => {
@@ -62,11 +63,31 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Price (USD)</TableCell>
-            <TableCell align="right">Change (24h)</TableCell>
-            <TableCell align="right">Market Cap</TableCell>
-            <TableCell align="right">Watch</TableCell>
+            <TableCell>
+              <Typography>
+                Name
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography>
+                Price (USD)
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography>
+                Change (24h)
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography>
+                Market Cap
+              </Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography>
+                Watch
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -86,13 +107,24 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
                   </Box>
                 </Box>
               </TableCell>
-              <TableCell align="right">${row.current_price}</TableCell>
-              <TableCell align="right">{row.percentage_change_24h}%</TableCell>
-              <TableCell align="right">${row.marketCap}</TableCell>
+              <TableCell align="right">
+                <Typography>
+                  {numeral(row.current_price).format('$0.00')}
+                </Typography>
+                </TableCell>
+              <TableCell align="right">
+                <Typography>
+                  {numeral(row.percentage_change_24h / 100).format('0.00%')}
+                </Typography>
+              </TableCell>
+              <TableCell align="right" textTransform='uppercase'>
+                <Typography textTransform='uppercase'>
+                  {numeral(row.marketCap).format('$0.00a')}
+                </Typography>
+                </TableCell>
               <TableCell align="right">
                 <IconButton>
                   {row.isFavorited ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
-                  
                 </IconButton>
               </TableCell>
             </TableRow>
