@@ -17,7 +17,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
   export const MarketPage = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [marketList, setMarketList] = useState(null);
   const [userWatchList, setUserWatchList] = useState(null);
 
@@ -56,12 +56,10 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
   // Run these whenever the page mounts
   useEffect(() => {
     getUserWatchList();
-    console.log(userWatchList)
   }, [getUserWatchList]);
 
   useEffect(() => {
     getMarketList();
-    console.log(marketList)
   }, [getMarketList])
   
   return (
@@ -84,9 +82,9 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Coins</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Change</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Price (USD)</TableCell>
+            <TableCell align="right">Change (24h)</TableCell>
             <TableCell align="right">Market Cap</TableCell>
             <TableCell align="right">Watch</TableCell>
           </TableRow>
@@ -109,7 +107,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
                 </Box>
               </TableCell>
               <TableCell align="right">${row.current_price}</TableCell>
-              <TableCell align="right">%{row.percentage_change_24h}</TableCell>
+              <TableCell align="right">{row.percentage_change_24h}%</TableCell>
               <TableCell align="right">${row.marketCap}</TableCell>
               <TableCell align="right">
                 <IconButton>
