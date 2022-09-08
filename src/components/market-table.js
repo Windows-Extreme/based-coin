@@ -14,6 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import Chip from '@mui/material/Chip';
 
 export function MarketTable(props) {
   return(
@@ -76,9 +77,9 @@ export function MarketTable(props) {
                   </Typography>
                   </TableCell>
                 <TableCell align="right">
-                  <Typography>
+                  <Chip label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
                     {numeral(row.percentage_change_24h / 100).format('0.00%')}
-                  </Typography>
+                  </Chip>
                 </TableCell>
                 <TableCell align="right">
                   <Typography textTransform='uppercase'>

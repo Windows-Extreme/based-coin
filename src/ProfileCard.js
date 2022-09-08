@@ -14,7 +14,7 @@ class ProfileCard extends React.Component {
     return (
       <>
 
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ width: 300 }}>
           <CardActionArea>
             <CardMedia
               component="img"

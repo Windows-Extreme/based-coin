@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
 import StoreIcon from '@mui/icons-material/Store';
+import { Typography } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
@@ -20,7 +21,7 @@ const darkTheme = createTheme({
 
 export function PageLayout({ children }) {
 
-  const drawerWidth = 85;
+  const drawerWidth = 150;
   const { isAuthenticated } = useAuth0();
   return (
     <Box sx={{ display: 'flex' }}>
@@ -57,20 +58,24 @@ export function PageLayout({ children }) {
         
         <Button
           sx={{
-            marginTop: 2
+            marginLeft: 1,
+            marginTop: 2,
+            justifyContent: 'start'
           }}
           color='inherit'
           component={Link}
           to='/home'
-        ><HomeIcon/></Button>
+        ><HomeIcon/><Typography ml={3} pt='2px'>Home</Typography></Button>
         <Button 
           sx={{
-            marginTop: 2
+            marginLeft: 1,
+            marginTop: 2,
+            justifyContent: 'start'
           }}
           color='inherit'
           component={Link}
           to='/market'
-        ><StoreIcon/></Button>
+        ><StoreIcon/><Typography ml={3} pt='2px'>Market</Typography></Button>
         </Drawer>
         
         <Box
