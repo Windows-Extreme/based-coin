@@ -18,28 +18,19 @@ export const Navbar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   }
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   return (
     <Toolbar>
-
-      {isAuthenticated && (
-        <>
-          <Button color='inherit'
-            component={Link}
-            to='/home'
-          >Home</Button>
-        </>
-      )}
-      <Button
-        color='inherit'
-        component={Link}
-        to='/market'
-      >Market</Button>
       <Button
         color='inherit'
         component={Link}
         to='/about'
       >Meet the Fellows</Button>
+       <Button
+        color='inherit'
+        component={Link}
+        to='/coins/bitcoin'
+      >Coin</Button>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}

@@ -8,7 +8,9 @@ import AppBar from '@mui/material/AppBar'
 import ToolBar from '@mui/material/Toolbar'
 import { Navbar } from './navbar';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
+import HomeIcon from '@mui/icons-material/Home';
+import StoreIcon from '@mui/icons-material/Store';
 
 const darkTheme = createTheme({
   palette: {
@@ -44,12 +46,33 @@ export function PageLayout({ children }) {
           anchor="left"
         >
         <Button
+          sx={{
+            marginTop: 1
+          }}
           component={Link}
           to='/'
           >
           <img src="/logo.svg" alt="logo" height={40}/>
         </Button>
+        
+        <Button
+          sx={{
+            marginTop: 2
+          }}
+          color='inherit'
+          component={Link}
+          to='/home'
+        ><HomeIcon/></Button>
+        <Button 
+          sx={{
+            marginTop: 2
+          }}
+          color='inherit'
+          component={Link}
+          to='/market'
+        ><StoreIcon/></Button>
         </Drawer>
+        
         <Box
           component='main'
           sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}

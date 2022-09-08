@@ -18,7 +18,8 @@ class ProfileCard extends React.Component {
           <CardActionArea>
             <CardMedia
               component="img"
-              height="200"
+              height="320"
+              width="320"
               image={this.props.image}
               alt="Profile Picture"
             />
