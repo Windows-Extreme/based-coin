@@ -68,8 +68,6 @@ export class NewChart extends React.Component {
     }
   }
   render() {
-    console.log(this.props.data?.map(item => new Date(item.date)))
-    console.log(this.props.data?.map(item => item.price))
     return (
       <Line options={this.state.options} data={this.state.data} />
     )

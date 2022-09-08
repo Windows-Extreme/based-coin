@@ -34,6 +34,14 @@ import { MarketTable } from '../components/market-table';
     getMarketList();
   }, [getMarketList])
 
+  const handleSearch = useCallback(async () => {
+    try {
+      
+    } catch (error) {
+      console.error(error.message)
+    }
+  })
+
   
 
   return (

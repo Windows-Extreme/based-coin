@@ -24,8 +24,6 @@ export const CoinPage = () => {
           },
         });
       const responseData = response.data;
-      console.log(responseData)
-      console.log(new Date(1994, 4, 5))
       setCoinData(responseData)
     } catch (error) {
       console.error(error.message)
@@ -37,8 +35,9 @@ export const CoinPage = () => {
   }, [getCoinData]);
 
   return (
-    isAuthenticated && (
-        <PageLayout>
+    <PageLayout>
+    {isAuthenticated && coinData && (
+      <>
         <NewChart title={coinData?.name} data={coinData?.chart} />
         <CoinTable />
         <Box mt={4}>
@@ -47,11 +46,11 @@ export const CoinPage = () => {
           </Typography>
           <Typography variant='h5' gutterBottom>
             this is the coin page
-          
           </Typography>
         </Box>
-      </PageLayout>
-    )
+      </>
+    )}
+    </PageLayout>
   )
 }
 
