@@ -85,7 +85,7 @@ function App() {
       <Route path='/home' element={<HomePage userData={userData} handleBookmark={handleBookmark}/>} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='/market' element={<MarketPage userData={userData} handleBookmark={handleBookmark}/>} />
-      <Route path='/coin' element={<CoinPage />} />
+      <Route path='/coins/:id' element={<CoinPage />} />
     </Routes>
   )
 }
