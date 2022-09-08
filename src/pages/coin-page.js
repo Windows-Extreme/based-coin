@@ -3,6 +3,7 @@
 import { PageLayout } from '../components/page-layout';
 // import axios from 'axios';
 import NewChart from '../components/coin-chart';
+import { CoinTable } from '../components/coin-table';
 
 import { Box, Typography } from '@mui/material';
 import React from 'react';
@@ -38,6 +39,7 @@ export const CoinPage = () => {
     
     <PageLayout>
       <NewChart/>
+      <CoinTable />
       <Box mt={4}>
         <Typography variant='h3' gutterBottom>
           Your treasure matters
