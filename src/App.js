@@ -30,7 +30,6 @@ function App() {
           },
         });
       const responseData = response.data;
-      console.log(responseData)
       setUserData(responseData);
     } catch (error) {
       console.error(error.message)

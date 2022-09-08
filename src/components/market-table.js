@@ -77,8 +77,7 @@ export function MarketTable(props) {
                   </Typography>
                   </TableCell>
                 <TableCell align="right">
-                  <Chip label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
-                    {numeral(row.percentage_change_24h / 100).format('0.00%')}
+                  <Chip variant='outlined' color={(row.percentage_change_24h > 0) ? 'success' : 'error'} label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
                   </Chip>
                 </TableCell>
                 <TableCell align="right">

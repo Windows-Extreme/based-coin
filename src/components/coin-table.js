@@ -69,7 +69,7 @@ export function CoinTable(props) {
                   <Typography>
                     {numeral(row.current_price).format('$0.00')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
                   <Typography>
                     {numeral(row.percentage_change_24h / 100).format('0.00%')}
@@ -79,7 +79,7 @@ export function CoinTable(props) {
                   <Typography textTransform='uppercase'>
                     {numeral(row.marketCap).format('$0.00a')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
                   {/* Bookmark icon button */}
                   <IconButton onClick={() => props.handleBookmark(row.id)}>
