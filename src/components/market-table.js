@@ -12,12 +12,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 export function MarketTable(props) {
   return(
     <Box>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 650 }}>
           <TableHead>
             <TableRow>
               <TableCell>
@@ -54,8 +56,11 @@ export function MarketTable(props) {
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  <Box display={'flex'} alignItems='center'>
+                <TableCell
+                  component="th" 
+                  scope="row">
+                  
+                  <Button sx={{ width: '100%', justifyContent: 'start'}} color='inherit' component={Link} to={`/coins/${row.id}`}>
                     <Box mr={2}>
                     <img src={row.image} alt={row.id} height={30} />
                     </Box>
@@ -63,7 +68,7 @@ export function MarketTable(props) {
                     <Typography variant='h6'>{row.name}</Typography>
                     <Typography variant='subtitle2' textTransform='uppercase'>{row.symbol}</Typography>
                     </Box>
-                  </Box>
+                  </Button>
                 </TableCell>
                 <TableCell align="right">
                   <Typography>

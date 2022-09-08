@@ -38,7 +38,9 @@ export const CoinPage = () => {
     <PageLayout>
     {isAuthenticated && coinData && (
       <>
-        <NewChart title={coinData?.name} data={coinData?.chart} />
+        <Box width={600}>
+          <NewChart title={coinData?.name} data={coinData?.chart}/>
+        </Box>
         <CoinTable />
         <Box mt={4}>
           <Typography variant='h3' gutterBottom>
