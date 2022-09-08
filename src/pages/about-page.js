@@ -7,6 +7,7 @@ import { Grid, Typography, Container } from "@mui/material";
 class AboutUs extends React.Component {
   profile = DevProfiles.map((value) => {
     return (
+      <Grid item>
       <ProfileCard
         key={value._id}
         image={value.image_url}
@@ -15,6 +16,7 @@ class AboutUs extends React.Component {
         linkedin={value.linkedin}
         github={value.github}
       />
+      </Grid>
     );
   });
 
@@ -33,12 +35,12 @@ class AboutUs extends React.Component {
           </Typography>
           </Container>
 
-          <Grid
-            sx={{
-              justifyContent: "space-evenly",
-              display: "flex",
-              margin: "2rem",
-            }}
+          <Grid container spacing={2}
+            // sx={{
+            //   justifyContent: "space-evenly",
+            //   display: "flex",
+            //   margin: "2rem",
+            // }}
           >
             {this.profile}
           </Grid>
