@@ -6,12 +6,12 @@ import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import axios from 'axios';
 import { MarketTable } from '../components/market-table';
-
-
+import debounce from "lodash/debounce"
 
   export const MarketPage = (props) => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [marketList, setMarketList] = useState(null);
+
   
   const getMarketList = useCallback(async () => {
     try {
@@ -34,6 +34,25 @@ import { MarketTable } from '../components/market-table';
     getMarketList();
   }, [getMarketList])
 
+  const handleSearch = async (e) => {
+    try {
+      console.log(e.target.value)
+      const params = {
+        search: e.target.value
+      }
+      if (e.target.value === '') {
+        getMarketList();
+      } else {
+        const response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/search`, {params})
+        console.log(response)
+        setMarketList(response.data)
+      }
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+
   
 
   return (
@@ -49,10 +68,11 @@ import { MarketTable } from '../components/market-table';
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Name" variant="outlined" />
+      <TextField id="outlined-basic" label="Name" variant="outlined" onChange={debounce(handleSearch, 500)}/>
     </Box>
      <MarketTable data={marketList} handleBookmark={props.handleBookmark} userData={props.userData}/>
     </PageLayout>
+
 
     )
   )
