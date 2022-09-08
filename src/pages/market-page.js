@@ -23,7 +23,6 @@ import debounce from "lodash/debounce"
           },
         });
       const responseData = response.data;
-      console.log(responseData)
       setMarketList(responseData);
     } catch (error) {
       console.error(error.message)
@@ -36,7 +35,6 @@ import debounce from "lodash/debounce"
 
   const handleSearch = async (e) => {
     try {
-      console.log(e.target.value)
       const params = {
         search: e.target.value
       }
@@ -44,7 +42,6 @@ import debounce from "lodash/debounce"
         getMarketList();
       } else {
         const response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/search`, {params})
-        console.log(response)
         setMarketList(response.data)
       }
     } catch (error) {
