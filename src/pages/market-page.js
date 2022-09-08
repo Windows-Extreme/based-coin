@@ -34,7 +34,7 @@ import debounce from "lodash/debounce"
     getMarketList();
   }, [getMarketList])
 
-  const handleSearch = useCallback(async (e) => {
+  const handleSearch = async (e) => {
     try {
       console.log(e.target.value)
       const params = {
@@ -50,7 +50,7 @@ import debounce from "lodash/debounce"
     } catch (error) {
       console.error(error.message)
     }
-  })
+  }
 
 
   
