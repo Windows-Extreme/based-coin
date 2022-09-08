@@ -29,7 +29,7 @@ export const Navbar = () => {
        <Button
         color='inherit'
         component={Link}
-        to='/coin'
+        to='/coins/bitcoin'
       >Coin</Button>
       <Tooltip title='Account'>
         <IconButton

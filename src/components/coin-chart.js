@@ -1,73 +1,80 @@
 import React from 'react';
-import dataSource from '../charts.json';
-
-import Chart, {
-  CommonSeriesSettings,
-  Series,
-  Reduction,
-  ArgumentAxis,
-  Label,
-  Format,
-  ValueAxis,
+import Chart from "react-apexcharts";
+import numeral from 'numeral'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  TimeScale,
+  LinearScale,
+  PointElement,
+  LineElement,
   Title,
-  Legend,
-  Export,
   Tooltip,
-} from 'devextreme-react/chart';
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import 'chartjs-adapter-date-fns';
 
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  TimeScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-class NewChart extends React.Component {
-  render() {
-    return (
-      <Chart
-        id="chart"
-        title="Stock Price"
-        dataSource={dataSource}
-      >
-        <CommonSeriesSettings
-          argumentField="date"
-          type="candlestick"
-        />
-        <Series
-          name="DELL"
-          openValueField="o"
-          highValueField="h"
-          lowValueField="l"
-          closeValueField="c"
-        >
-          <Reduction color="red" />
-        </Series>
-        <ArgumentAxis workdaysOnly={true}>
-          <Label format="shortDate" />
-        </ArgumentAxis>
-        <ValueAxis tickInterval={1}>
-          <Title text="US dollars" />
-          <Label>
-            <Format
-              precision={0}
-              type="currency"
-            />
-          </Label>
-        </ValueAxis>
-        <Legend itemTextPosition="left" />
-        <Export enabled={true} />
-        <Tooltip
-          enabled={true}
-          location="edge"
-          customizeTooltip={this.customizeTooltip}
-        />
-      </Chart>
-    );
+export class NewChart extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: {
+        labels: this.props.data?.map(item => new Date(item.date)),
+        datasets: [
+          {
+            label: this.props.title,
+            fill: true,
+            pointBackgroundColor: '#aaddaa',
+            pointBorderColor: '#aaddaa',
+            pointRadius: 0,
+            pointHoverRadius: 7,
+            data: this.props.data?.map(item => item.price),
+            borderColor: '#ddaadd',
+            backgroundColor: '#ddaadd',
+          },
+        ]
+      },
+      options: {
+        interaction: {
+          mode: 'nearest',
+          intersect: false,
+        },
+        scales: {
+          xAxis: {
+            type: 'time',
+          }
+        },
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Chart.js Line Chart',
+          },
+        },
+      }
+    }
   }
-
-  customizeTooltip(arg) {
-    return {
-      text: `Open: $${arg.openValue}<br/>
-Close: $${arg.closeValue}<br/>
-High: $${arg.highValue}<br/>
-Low: $${arg.lowValue}<br/>`,
-    };
+  render() {
+    console.log(this.props.data?.map(item => new Date(item.date)))
+    console.log(this.props.data?.map(item => item.price))
+    return (
+      <Line options={this.state.options} data={this.state.data} />
+    )
   }
 }
 
-export default NewChart;
