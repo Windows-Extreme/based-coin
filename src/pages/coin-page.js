@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
 import { PageLayout } from '../components/page-layout';
 import axios from 'axios';
+import { CoinTable } from '../components/coin-table';
 import {NewChart} from '../components/coin-chart';
-
 import { Box, Typography } from '@mui/material';
 
 
@@ -30,7 +30,6 @@ export const CoinPage = () => {
     } catch (error) {
       console.error(error.message)
     }
-    
   }, [getAccessTokenSilently, params.id])
 
   useEffect(() => {
@@ -41,6 +40,7 @@ export const CoinPage = () => {
     isAuthenticated && (
         <PageLayout>
         <NewChart title={coinData?.name} data={coinData?.chart} />
+        <CoinTable />
         <Box mt={4}>
           <Typography variant='h3' gutterBottom>
             Your treasure matters
