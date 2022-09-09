@@ -15,6 +15,8 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
 export function MarketTable(props) {
   return(
@@ -73,11 +75,15 @@ export function MarketTable(props) {
                 </TableCell>
                 <TableCell align="right">
                   <Typography>
-                    {numeral(row.current_price).format('$0.00')}
+                    {numeral(row.current_price).format('$0,.00')}
                   </Typography>
                   </TableCell>
                 <TableCell align="right">
-                  <Chip variant='outlined' color={(row.percentage_change_24h > 0) ? 'success' : 'error'} label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
+                  <Chip 
+                  variant='outlined'
+                  icon={(row.percentage_change_24h > 0) ? <KeyboardDoubleArrowUpIcon/> : <KeyboardDoubleArrowDownIcon/>}
+                  color={(row.percentage_change_24h > 0) ? 'success' : 'error'} 
+                  label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
                   </Chip>
                 </TableCell>
                 <TableCell align="right">
@@ -88,7 +94,7 @@ export function MarketTable(props) {
                 <TableCell align="right">
                   {/* Bookmark icon button */}
                   <IconButton onClick={() => props.handleBookmark(row.id)}>
-                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
+                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<BookmarkIcon color='secondary'/>) : (<BookmarkBorderIcon color='secondary' />)}
                   </IconButton>
                 </TableCell>
               </TableRow>

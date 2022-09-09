@@ -25,26 +25,27 @@ ChartJS.register(
 );
 
 export class NewChart extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: {
-        labels: this.props.data?.map(item => new Date(item.date)),
-        datasets: [
-          {
-            label: this.props.title,
-            fill: true,
-            pointBackgroundColor: '#aaddaa',
-            pointBorderColor: '#aaddaa',
-            pointRadius: 0,
-            pointHoverRadius: 7,
-            data: this.props.data?.map(item => item.price),
-            borderColor: '#ddaadd',
-            backgroundColor: '#ddaadd',
-          },
-        ]
-      },
-      options: {
+
+  render() {
+    const data = {
+      labels: this.props.data?.map(item => new Date(item.date)),
+      datasets: [
+        {
+          label: this.props.title,
+          fill: true,
+          pointBackgroundColor: '#aaddaa',
+          pointBorderColor: '#aaddaa',
+          pointRadius: 0,
+          pointHoverRadius: 7,
+          data: this.props.data?.map(item => item.price),
+          borderColor: '#ddaadd',
+          backgroundColor: '#ddaadd',
+        },
+      ]
+    }
+
+    const options = {
+        responsive: true,
         interaction: {
           mode: 'nearest',
           intersect: false,
@@ -54,22 +55,15 @@ export class NewChart extends React.Component {
             type: 'time',
           }
         },
-        responsive: true,
         plugins: {
           legend: {
-            position: 'top',
+            display: false,
           },
-          title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-          },
-        },
       }
     }
-  }
-  render() {
+
     return (
-      <Line options={this.state.options} data={this.state.data} />
+      <Line options={options} data={data} />
     )
   }
 }
