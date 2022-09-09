@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
+import numeral from 'numeral';
 
 ChartJS.register(
   CategoryScale,
@@ -28,16 +29,19 @@ export class NewChart extends React.Component {
 
   render() {
     const data = {
-      labels: this.props.data?.map(item => new Date(item.date)),
       datasets: [
         {
-          label: this.props.title,
           fill: true,
           pointBackgroundColor: '#aaddaa',
           pointBorderColor: '#aaddaa',
           pointRadius: 0,
           pointHoverRadius: 7,
-          data: this.props.data?.map(item => item.price),
+          data: this.props.data?.map(item => {
+            return {
+              x: new Date(item.date),
+              y: item.price,
+            }
+          }),
           borderColor: '#ddaadd',
           backgroundColor: '#ddaadd',
         },
@@ -47,19 +51,42 @@ export class NewChart extends React.Component {
     const options = {
         responsive: true,
         interaction: {
-          mode: 'nearest',
+          mode: 'index',
           intersect: false,
         },
         scales: {
           xAxis: {
             type: 'time',
+
           }
         },
         plugins: {
           legend: {
             display: false,
           },
-      }
+          tooltip: {
+            position: 'nearest',
+            caretPadding: 18,
+            displayColors: false,
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': '
+                }
+                if (context.parsed.y !== null) {
+                  label += numeral(context.parsed.y).format('$0,.00')
+                }
+                return label;
+              }
+            }
+          }
+        },
+        elements: {
+          point: {
+            pointStyle: 'circle'
+          }
+        }
     }
 
     return (
