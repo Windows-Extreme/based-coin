@@ -5,7 +5,6 @@ import {
   Typography,
   Box, 
   TextField,
-  Skeleton,
 } from '@mui/material';
 import debounce from "lodash/debounce"
 import MarketTable from '../components/market-table';

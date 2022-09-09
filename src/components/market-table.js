@@ -13,7 +13,6 @@ import {
   Paper,
   Button,
   Chip,
-  Skeleton,
 } from '@mui/material';
 import {
   BookmarkBorder,
