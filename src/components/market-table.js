@@ -13,6 +13,7 @@ import {
   Paper,
   Button,
   Chip,
+  Skeleton,
 } from '@mui/material';
 import {
   BookmarkBorder,
@@ -23,6 +24,7 @@ import {
 import numeral from 'numeral'
 
 export default function MarketTable(props) {
+
   return(
     <Box>
       <TableContainer component={Paper}>
@@ -34,7 +36,7 @@ export default function MarketTable(props) {
                   Name
                 </Typography>
               </TableCell>
-              <TableCell align="right">
+              <TableCell>
                 <Typography>
                   Price (USD)
                 </Typography>
@@ -58,6 +60,7 @@ export default function MarketTable(props) {
           </TableHead>
 
           <TableBody>
+            
             {props.data?.map((row) => (
               <TableRow
                 key={row.id}
@@ -66,22 +69,21 @@ export default function MarketTable(props) {
                 <TableCell
                   component="th" 
                   scope="row">
-                  
                   <Button sx={{ width: '100%', justifyContent: 'start'}} color='inherit' component={Link} to={`/coins/${row.id}`}>
                     <Box mr={2}>
-                    <img src={row.image} alt={row.id} height={30} />
+                      <img src={row.image} alt={row.id} height={30} />
                     </Box>
                     <Box>
-                    <Typography variant='h6'>{row.name}</Typography>
-                    <Typography variant='subtitle2' textTransform='uppercase'>{row.symbol}</Typography>
+                      <Typography variant='h6' noWrap={true}>{row.name}</Typography>
+                      <Typography variant='subtitle2' textTransform='uppercase'>{row.symbol}</Typography>
                     </Box>
                   </Button>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell>
                   <Typography>
                     {numeral(row.current_price).format('$0,.00')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
                   <Chip 
                   variant='outlined'

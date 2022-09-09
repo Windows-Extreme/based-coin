@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import axios from 'axios';
 // import { ProtectedRoute } from "./components/protected-route.js";
 // import './App.css';
+import PageLayout from './components/page-layout.js';
 import PublicPage from './pages/public-page.js';
 import AboutUs from './pages/about-page.js';
 import HomePage from './pages/home-page.js';
@@ -73,7 +74,7 @@ function App() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <PageLayout><div>Loading...</div></PageLayout>
   }
   if (error) {
     return <div>Oops... {error.message}</div>

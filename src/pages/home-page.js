@@ -10,7 +10,7 @@ import MarketTable from '../components/market-table';
 export default function HomePage(props) {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userWatchList, setUserWatchList] = useState(null);
-
+  
   const getUserWatchList = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();

@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import {
   Toolbar,
-  Button,
   Avatar,
   Menu,
   IconButton,
   Tooltip,
   Box,
 } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
 import LogoutButton from './navbuttons/logout-button';
 
 
@@ -26,11 +26,14 @@ export default function Navbar() {
   return (
     <Toolbar>
       <Box ml={'auto'}>
-      <Button
-        color='inherit'
-        component={Link}
-        to='/about'
-      >Meet the Fellows</Button>
+      <Tooltip title='Meet the Fellows'>
+        <IconButton
+          color='inherit'
+          component={Link}
+          to='/about'>
+          <InfoIcon/>
+        </IconButton>
+      </Tooltip>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}

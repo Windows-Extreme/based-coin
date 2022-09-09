@@ -17,7 +17,7 @@ import { KeyboardDoubleArrowUp, KeyboardDoubleArrowDown } from '@mui/icons-mater
 import NewChart from '../components/coin-chart';
 
 export default function CoinPage() {
-  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [coinData, setCoinData] = useState(null);
   const [days, setDays] = useState(7);
   const params = useParams();
@@ -25,12 +25,8 @@ export default function CoinPage() {
 
   const getCoinData = useCallback(async () => {
     try {
-      const accessToken = await getAccessTokenSilently();
       let response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/coins/${params.id}`,
         {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
           params: {
             days: days,
           }
@@ -40,7 +36,7 @@ export default function CoinPage() {
     } catch (error) {
       console.error(error.message)
     }
-  }, [getAccessTokenSilently, params.id, days])
+  }, [params.id, days])
 
 
   useEffect(() => {
