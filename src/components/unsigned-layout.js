@@ -23,7 +23,7 @@ export default function UnsignedLayout({ children }) {
         </AppBar>
         <Box
           component='main'
-          sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
+          sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 0 }}
         >
           <Toolbar />
           {children}

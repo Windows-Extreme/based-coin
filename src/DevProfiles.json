@@ -1,34 +1,34 @@
 [
-  {
-    "_id": 1,
-    "image_url": "/img/RobertProImg.jpg",
-    "name": "Robert Shepley",
-    "description": "Robert Shepley is a software developer with a background in sound design and audio engineering. He has worked for the US Army Bands as a recording and live sound engineer for six years, and is excited to transfer his skills in technical problem solving to the world of software development. He currently lives in Tacoma, WA with his wife and two cats.",
-    "linkedin": "https://www.linkedin.com/in/robert-shepley/",
-    "github": "https://github.com/ShepleySound"
-  },
-  {
-    "_id": 2,
-    "image_url": "/img/LuisProImg.jpg",
-    "name": "Luis Rosales",
-    "description": "Mother (or father) rhino with two babies",
-    "linkedin": "https://www.linkedin.com/in/luis-rosales-jr/",
-    "github": "https://github.com/RosalesJr"
-  },
-  {
-    "_id": 3,
-    "image_url": "/img/BrandonProImg.jpg",
-    "name": "Brandon Pitts",
-    "description": "Someone wearing a creepy unicorn head mask",
-    "linkedin": "https://www.linkedin.com/in/brandomoki/",
-    "github": "https://github.com/brandomoki"
-  },
-  {
-    "_id": 4,
-    "image_url": "/img/JunProImg.jpg",
-    "name": "Junyoung Son",
-    "description": "I am a software dev with experience in JavaScript, HTML, CSS, Materials UI, Bootstrap, Github, and Git. I'm transitioning out of the service and have always had a interest in tech, I found an opportunity to learn and here I am! learning to code. I am a very curious person and I've built my own pc and done a lot of the physical building of a computer, but never really understood what goes behind, until now!",
-    "linkedin": "https://www.linkedin.com/in/junyoung-son-g/",
-    "github": "https://github.com/Junyoungson808"
-  }
+    {
+      "_id": 1,
+      "image_url": "/img/RobertProImg.jpg",
+      "name": "Robert Shepley",
+      "description": "Robert Shepley is a software developer with a background in sound design and audio engineering. He has worked for the US Army Bands as a recording and live sound engineer for six years, and is excited to transfer his skills in technical problem solving to the world of software development. He currently lives in Tacoma, WA with his wife and two cats.",
+      "linkedin": "https://www.linkedin.com/in/robert-shepley/",
+      "github": "https://github.com/ShepleySound"
+    },
+    {
+      "_id": 2,
+      "image_url": "/img/LuisProImg.jpg",
+      "name": "Luis Rosales",
+      "description": "Luis Rosales is a current United States Army Soldier and student at Code Fellows, pursuing certification in Advanced Software Development in Full-Stack JavaScript. Being a prior Maintenance Supervisor Luis possesses tested knowledge in problem solving, Excel and foundational team building. Luis' passion for coding first arose when he started studying Python as a self taught developer. After building his first application he knew this was the career path for him to follow. Luis completes his contract with the United States Army at the end of year 2022 and will pursue his passion for coding as a Software Engineer.",
+      "linkedin": "https://www.linkedin.com/in/luis-rosales-jr/",
+      "github": "https://github.com/RosalesJr"
+    },
+    {
+      "_id": 3,
+      "image_url": "/img/BrandonProImg.jpg",
+      "name": "Brandon Pitts",
+      "description": "My name is Brandon Pitts, I live in Las Vegas, NV but I am originally from Hawaii. I am a US Army Veteran and an aspiring Fullstack Software engineer. In my previous profession, I was a Building Engineer and I would service and maintain on-site power plants. I am ready and looking forward to making this career change and building out web3 projects on my own time.",
+      "linkedin": "https://www.linkedin.com/in/brandomoki/",
+      "github": "https://github.com/brandomoki"
+    },
+    {
+      "_id": 4,
+      "image_url": "/img/JunProImg.jpg",
+      "name": "Junyoung Son",
+      "description": "I am a software dev with experience in JavaScript, HTML, CSS, Materials UI, Bootstrap, Github, and Git. I'm transitioning out of the service and have always had a interest in tech, I found an opportunity to learn and here I am! learning to code. I am a very curious person and I've built my own pc and done a lot of the physical building of a computer, but never really understood what goes behind, until now!",
+      "linkedin": "https://www.linkedin.com/in/junyoung-son-g/",
+      "github": "https://github.com/Junyoungson808"
+    }
 ]

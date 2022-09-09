@@ -112,3 +112,14 @@ Finish time: 6:30pm
 Actual time needed to complete:
 
 ---
+
+09/09/2022
+Name of feature: Coin Fellows
+
+Estimate of time needed to complete: 8 hours
+
+Start time: 9:30am
+
+Finish time: 6:30pm
+
+Actual time needed to complete:
