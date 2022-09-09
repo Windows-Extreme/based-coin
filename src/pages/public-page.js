@@ -1,10 +1,9 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { UnsignedLayout } from '../components/unsigned-layout';
+import { Box, Typography } from '@mui/material';
+import UnsignedLayout from '../components/unsigned-layout';
 
 
-
-export const PublicPage = () => {
+export default function PublicPage() {
   return (
     <UnsignedLayout>
       <Box mt={4} align = "center">

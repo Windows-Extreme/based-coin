@@ -1,21 +1,29 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import numeral from 'numeral'
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import {
+  Typography,
+  IconButton,
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+  Chip,
+} from '@mui/material';
+import {
+  BookmarkBorder,
+  Bookmark,
+  KeyboardDoubleArrowUp,
+  KeyboardDoubleArrowDown,
+} from '@mui/icons-material'
+import numeral from 'numeral'
 
-export function MarketTable(props) {
+export default function MarketTable(props) {
+
   return(
     <Box>
       <TableContainer component={Paper}>
@@ -27,7 +35,7 @@ export function MarketTable(props) {
                   Name
                 </Typography>
               </TableCell>
-              <TableCell align="right">
+              <TableCell>
                 <Typography>
                   Price (USD)
                 </Typography>
@@ -51,6 +59,7 @@ export function MarketTable(props) {
           </TableHead>
 
           <TableBody>
+            
             {props.data?.map((row) => (
               <TableRow
                 key={row.id}
@@ -59,26 +68,28 @@ export function MarketTable(props) {
                 <TableCell
                   component="th" 
                   scope="row">
-                  
                   <Button sx={{ width: '100%', justifyContent: 'start'}} color='inherit' component={Link} to={`/coins/${row.id}`}>
                     <Box mr={2}>
-                    <img src={row.image} alt={row.id} height={30} />
+                      <img src={row.image} alt={row.id} height={30} />
                     </Box>
                     <Box>
-                    <Typography variant='h6'>{row.name}</Typography>
-                    <Typography variant='subtitle2' textTransform='uppercase'>{row.symbol}</Typography>
+                      <Typography variant='h6' noWrap={true}>{row.name}</Typography>
+                      <Typography variant='subtitle2' textTransform='uppercase'>{row.symbol}</Typography>
                     </Box>
                   </Button>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell>
                   <Typography>
-                    {numeral(row.current_price).format('$0.00')}
+                    {numeral(row.current_price).format('$0,.00')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
-                  <Typography>
-                    {numeral(row.percentage_change_24h / 100).format('0.00%')}
-                  </Typography>
+                  <Chip 
+                  variant='outlined'
+                  icon={(row.percentage_change_24h > 0) ? <KeyboardDoubleArrowUp/> : <KeyboardDoubleArrowDown/>}
+                  color={(row.percentage_change_24h > 0) ? 'success' : 'error'} 
+                  label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
+                  </Chip>
                 </TableCell>
                 <TableCell align="right">
                   <Typography textTransform='uppercase'>
@@ -88,7 +99,7 @@ export function MarketTable(props) {
                 <TableCell align="right">
                   {/* Bookmark icon button */}
                   <IconButton onClick={() => props.handleBookmark(row.id)}>
-                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
+                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<Bookmark color='secondary'/>) : (<BookmarkBorder color='secondary' />)}
                   </IconButton>
                 </TableCell>
               </TableRow>

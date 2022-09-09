@@ -1,20 +1,21 @@
 import React from "react";
-import { Card } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActionArea,
+  IconButton
+} from "@mui/material";
+import { LinkedIn, GitHub } from '@mui/icons-material'
 
-class ProfileCard extends React.Component {
+export default class ProfileCard extends React.Component {
   
   render() {
     return (
       <>
 
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ width: 300 }}>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -37,7 +38,7 @@ class ProfileCard extends React.Component {
                 component="a"
                 href={this.props.linkedin}
               >
-                <LinkedInIcon></LinkedInIcon>
+                <LinkedIn/>
               </IconButton>
 
               <IconButton
@@ -45,7 +46,7 @@ class ProfileCard extends React.Component {
                 component="a"
                 href={this.props.github}
               >
-                <GitHubIcon></GitHubIcon>
+                <GitHub/>
               </IconButton>
             </CardContent>
           </CardActionArea>
@@ -54,5 +55,3 @@ class ProfileCard extends React.Component {
     );
   }
 }
-
-export default ProfileCard;

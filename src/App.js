@@ -1,14 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, {useState, useCallback, useEffect} from 'react'
 import { Route, Routes } from "react-router-dom";
-// import { ProtectedRoute } from "./components/protected-route.js";
-import { PublicPage } from './pages/public-page.js';
-import { HomePage } from './pages/home-page.js';
-import './App.css';
-import AboutUs from './pages/about-page.js';
-import { MarketPage } from './pages/market-page.js';
 import axios from 'axios';
-import { CoinPage } from './pages/coin-page.js';
+// import { ProtectedRoute } from "./components/protected-route.js";
+// import './App.css';
+import PageLayout from './components/page-layout.js';
+import PublicPage from './pages/public-page.js';
+import AboutUs from './pages/about-page.js';
+import HomePage from './pages/home-page.js';
+import MarketPage from './pages/market-page.js';
+import CoinPage from './pages/coin-page.js';
 
 
 function App() {
@@ -30,7 +31,6 @@ function App() {
           },
         });
       const responseData = response.data;
-      console.log(responseData)
       setUserData(responseData);
     } catch (error) {
       console.error(error.message)
@@ -74,7 +74,7 @@ function App() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <PageLayout><div>Loading...</div></PageLayout>
   }
   if (error) {
     return <div>Oops... {error.message}</div>

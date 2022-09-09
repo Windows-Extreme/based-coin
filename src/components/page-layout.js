@@ -1,16 +1,20 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
+import { Link, NavLink } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline'
-import AppBar from '@mui/material/AppBar'
-import ToolBar from '@mui/material/Toolbar'
-import { Navbar } from './navbar';
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import HomeIcon from '@mui/icons-material/Home';
-import StoreIcon from '@mui/icons-material/Store';
+import {
+  Typography,
+  Box,
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Button,
+  ListItem,
+  List,
+} from '@mui/material';
+import { Bookmark, Store } from '@mui/icons-material'
+import Navbar from './navbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,9 +22,9 @@ const darkTheme = createTheme({
   },
 });
 
-export function PageLayout({ children }) {
+export default function PageLayout({ children }) {
 
-  const drawerWidth = 85;
+  const drawerWidth = 160;
   const { isAuthenticated } = useAuth0();
   return (
     <Box sx={{ display: 'flex' }}>
@@ -54,30 +58,37 @@ export function PageLayout({ children }) {
           >
           <img src="/logo.svg" alt="logo" height={40}/>
         </Button>
-        
-        <Button
+        <List component='nav'>
+        <ListItem button
           sx={{
-            marginTop: 2
+            marginLeft: 1,
+            marginTop: 2,
+            justifyContent: 'start'
           }}
           color='inherit'
-          component={Link}
+          component={NavLink}
           to='/home'
-        ><HomeIcon/></Button>
-        <Button 
+        ><Bookmark/><Typography ml={3} pt='2px'>Watchlist</Typography></ListItem>
+        <ListItem 
+          button
+          color = 'inherit'
           sx={{
-            marginTop: 2
+            marginLeft: 1,
+            marginTop: 2,
+            justifyContent: 'start',
           }}
-          color='inherit'
-          component={Link}
+          component={NavLink}
+          activeClassName="Mui-selected"
           to='/market'
-        ><StoreIcon/></Button>
+        ><Store/><Typography ml={3} pt='2px'>Market</Typography></ListItem>
+        </List>
         </Drawer>
         
         <Box
           component='main'
           sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
         >
-        <ToolBar />
+        <Toolbar />
           {children}
         </Box>
       </ThemeProvider>

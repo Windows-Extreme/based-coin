@@ -1,16 +1,16 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { PageLayout } from '../components/page-layout';
 import { Typography } from '@mui/material';
 import axios from 'axios';
-import { MarketTable } from '../components/market-table';
+import PageLayout from '../components/page-layout';
+import MarketTable from '../components/market-table';
 
 
 
-export const HomePage = (props) => {
+export default function HomePage(props) {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userWatchList, setUserWatchList] = useState(null);
-
+  
   const getUserWatchList = useCallback(async () => {
     try {
       const accessToken = await getAccessTokenSilently();

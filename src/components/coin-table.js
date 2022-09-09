@@ -1,19 +1,21 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
+import {
+  Typography,
+  IconButton, 
+  Box, 
+  Table, 
+  TableBody, 
+  TableCell, 
+  TableContainer, 
+  TableHead, 
+  TableRow, 
+  Paper
+} from '@mui/material'
+import {BookmarkBorderIcon, BookmarkIcon} from '@mui/icons-material'
 import numeral from 'numeral'
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
-export function CoinTable(props) {
+
+export default function CoinTable(props) {
   return(
     <Box>
       <TableContainer component={Paper}>
@@ -69,7 +71,7 @@ export function CoinTable(props) {
                   <Typography>
                     {numeral(row.current_price).format('$0.00')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
                   <Typography>
                     {numeral(row.percentage_change_24h / 100).format('0.00%')}
@@ -79,7 +81,7 @@ export function CoinTable(props) {
                   <Typography textTransform='uppercase'>
                     {numeral(row.marketCap).format('$0.00a')}
                   </Typography>
-                  </TableCell>
+                </TableCell>
                 <TableCell align="right">
                   {/* Bookmark icon button */}
                   <IconButton onClick={() => props.handleBookmark(row.id)}>
