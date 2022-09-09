@@ -10,7 +10,6 @@ import numeral from 'numeral';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
-
 export const CoinPage = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [coinData, setCoinData] = useState(null);
@@ -41,11 +40,14 @@ export const CoinPage = () => {
   useEffect(() => {
     getCoinData();
   }, [getCoinData]);
-  
+  if (isAuthenticated && !coinData) {
+    return (
+      <PageLayout/>
+    )
+  }
+  if (isAuthenticated && coinData) {
   return (
     <PageLayout>
-    {isAuthenticated && coinData && (
-      
       <>
         <Card p={4} sx={{minWidth: '500px', maxWidth: '99%'}}>
         <CardContent>
@@ -59,7 +61,7 @@ export const CoinPage = () => {
         </Box>
         <Typography variant='h4' color='#cccccc'>{numeral(coinData.current_price).format('$0,.00')}</Typography>
         <Box mb={2} position='relative'>
-          <NewChart title={coinData.name} data={coinData.chart}/>
+          <NewChart title={coinData.name} data={coinData.chart} days={days}/>
         </Box>
         <Typography variant='h6' gutterBottom color='#aaaaaa'>Market Stats</Typography>
         <Box display='flex' mb={2}>
@@ -91,7 +93,7 @@ export const CoinPage = () => {
           <Divider/>
         <Typography mt={1} variant='h6' gutterBottom color='#aaaaaa'>Price Change %</Typography>
         <Box display='flex' mb={0}>
-          <Box mr={2}>
+          <Box mr={2} mb={2}>
             <Typography color='#aaaaaa' fontWeight={600} ml='4px' mb={.5}>24 hours</Typography>
             <Chip 
               variant='outlined' 
@@ -100,7 +102,7 @@ export const CoinPage = () => {
               label={numeral(coinData.price_change_24h / 100).format('0.00%')}>
             </Chip>
           </Box>
-          <Divider orientation="vertical" flexItem />
+          <Divider variant='middle' orientation="vertical" flexItem />
           <Box mx={2}>
             <Typography color='#aaaaaa' fontWeight={600} ml='4px' mb={.5}>7 days</Typography>
             <Chip 
@@ -110,7 +112,7 @@ export const CoinPage = () => {
               label={numeral(coinData.price_change_7d / 100).format('0.00%')}>
             </Chip>
           </Box>
-          <Divider orientation="vertical" flexItem />
+          <Divider variant='middle' orientation="vertical" flexItem />
           <Box mx={2}>
             <Typography color='#aaaaaa' fontWeight={600} ml='4px' mb={.5}>30 days</Typography>
             <Chip 
@@ -124,8 +126,7 @@ export const CoinPage = () => {
         </CardContent>
         </Card>
       </>
-    )}
     </PageLayout>
-  )
+  )}
 }
 

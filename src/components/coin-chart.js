@@ -38,7 +38,7 @@ export class NewChart extends React.Component {
           pointHoverRadius: 7,
           data: this.props.data?.map(item => {
             return {
-              x: new Date(item.date),
+              x: item.date,
               y: item.price,
             }
           }),
@@ -56,8 +56,22 @@ export class NewChart extends React.Component {
         },
         scales: {
           xAxis: {
+            alignToPixels: true,
             type: 'time',
+            time: {
+              displayFormats: {
+                hour: 'MMM d - ha'
+              }
+            }
 
+          },
+          yAxis: {
+            ticks: {
+              // Format y axis with dollar values.
+              callback: function(value, index, values) {
+                return numeral(value).format('$0.00a')
+              }
+            }
           }
         },
         plugins: {
@@ -69,6 +83,7 @@ export class NewChart extends React.Component {
             caretPadding: 18,
             displayColors: false,
             callbacks: {
+              // Format tooltip with dollar values.
               label: function(context) {
                 let label = context.dataset.label || '';
                 if (label) {
@@ -84,6 +99,7 @@ export class NewChart extends React.Component {
         },
         elements: {
           point: {
+            // Change hover point on chart to circle.
             pointStyle: 'circle'
           }
         }
