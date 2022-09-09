@@ -1,16 +1,22 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
-import { PageLayout } from '../components/page-layout';
+import { useParams } from 'react-router-dom'
+import PageLayout from '../components/page-layout';
 import axios from 'axios';
-import {NewChart} from '../components/coin-chart';
-import { Box, Button, Card, CardContent, Chip, Typography } from '@mui/material';
-import Divider from '@mui/material/Divider';
+import {
+  Box, 
+  Button, 
+  Card, 
+  CardContent, 
+  Chip, 
+  Typography,
+  Divider, 
+} from '@mui/material';
 import numeral from 'numeral';
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { KeyboardDoubleArrowUp, KeyboardDoubleArrowDown } from '@mui/icons-material'
+import NewChart from '../components/coin-chart';
 
-export const CoinPage = () => {
+export default function CoinPage() {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [coinData, setCoinData] = useState(null);
   const [days, setDays] = useState(7);
@@ -97,7 +103,7 @@ export const CoinPage = () => {
             <Typography color='#aaaaaa' fontWeight={600} ml='4px' mb={.5}>24 hours</Typography>
             <Chip 
               variant='outlined' 
-              icon={(coinData.price_change_7d > 0) ? <KeyboardDoubleArrowUpIcon/> : <KeyboardDoubleArrowDownIcon/>}
+              icon={(coinData.price_change_7d > 0) ? <KeyboardDoubleArrowUp/> : <KeyboardDoubleArrowDown/>}
               color={(coinData.price_change_24h > 0) ? 'success' : 'error'} 
               label={numeral(coinData.price_change_24h / 100).format('0.00%')}>
             </Chip>
@@ -107,7 +113,7 @@ export const CoinPage = () => {
             <Typography color='#aaaaaa' fontWeight={600} ml='4px' mb={.5}>7 days</Typography>
             <Chip 
               variant='outlined'
-              icon={(coinData.price_change_7d > 0) ? <KeyboardDoubleArrowUpIcon/> : <KeyboardDoubleArrowDownIcon/>}
+              icon={(coinData.price_change_7d > 0) ? <KeyboardDoubleArrowUp/> : <KeyboardDoubleArrowDown/>}
               color={(coinData.price_change_7d > 0) ? 'success' : 'error'} 
               label={numeral(coinData.price_change_7d / 100).format('0.00%')}>
             </Chip>
@@ -118,7 +124,7 @@ export const CoinPage = () => {
             <Chip 
               variant='outlined' 
               color={(coinData.price_change_30d > 0) ? 'success' : 'error'} 
-              icon={(coinData.price_change_30d > 0) ? <KeyboardDoubleArrowUpIcon/> : <KeyboardDoubleArrowDownIcon/>}
+              icon={(coinData.price_change_30d > 0) ? <KeyboardDoubleArrowUp/> : <KeyboardDoubleArrowDown/>}
               label={numeral(coinData.price_change_30d / 100).format('0.00%')}>
             </Chip>
           </Box>

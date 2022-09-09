@@ -1,14 +1,15 @@
 import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import { SignupButton } from './navbuttons/signup-button'
-import { LoginButton } from './navbuttons/login-button';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button'
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box'
+import {
+  Toolbar, 
+  Button, 
+  Typography, 
+  Box,
+} from '@mui/material';
+import SignupButton from './navbuttons/signup-button'
+import LoginButton from './navbuttons/login-button';
 
-export const UnsignedNavbar = () => {
-
+export default function UnsignedNavbar() {
   return (
     <Toolbar>
       <Button

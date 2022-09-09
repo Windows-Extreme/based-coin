@@ -1,24 +1,28 @@
 import React from 'react';
-import { Typography } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import numeral from 'numeral'
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import Chip from '@mui/material/Chip';
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import {
+  Typography,
+  IconButton,
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+  Chip,
+} from '@mui/material';
+import {
+  BookmarkBorder,
+  Bookmark,
+  KeyboardDoubleArrowUp,
+  KeyboardDoubleArrowDown,
+} from '@mui/icons-material'
+import numeral from 'numeral'
 
-export function MarketTable(props) {
+export default function MarketTable(props) {
   return(
     <Box>
       <TableContainer component={Paper}>
@@ -81,7 +85,7 @@ export function MarketTable(props) {
                 <TableCell align="right">
                   <Chip 
                   variant='outlined'
-                  icon={(row.percentage_change_24h > 0) ? <KeyboardDoubleArrowUpIcon/> : <KeyboardDoubleArrowDownIcon/>}
+                  icon={(row.percentage_change_24h > 0) ? <KeyboardDoubleArrowUp/> : <KeyboardDoubleArrowDown/>}
                   color={(row.percentage_change_24h > 0) ? 'success' : 'error'} 
                   label={numeral(row.percentage_change_24h / 100).format('0.00%')}>
                   </Chip>
@@ -94,7 +98,7 @@ export function MarketTable(props) {
                 <TableCell align="right">
                   {/* Bookmark icon button */}
                   <IconButton onClick={() => props.handleBookmark(row.id)}>
-                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<BookmarkIcon color='secondary'/>) : (<BookmarkBorderIcon color='secondary' />)}
+                    {props.userData?.watchlist.some(coin => coin._id === row.id) ? (<Bookmark color='secondary'/>) : (<BookmarkBorder color='secondary' />)}
                   </IconButton>
                 </TableCell>
               </TableRow>

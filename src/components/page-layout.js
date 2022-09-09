@@ -1,17 +1,18 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline'
-import AppBar from '@mui/material/AppBar'
-import ToolBar from '@mui/material/Toolbar'
-import { Navbar } from './navbar';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import HomeIcon from '@mui/icons-material/Home';
-import StoreIcon from '@mui/icons-material/Store';
-import { Typography } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {
+  Typography,
+  Box,
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Button,
+} from '@mui/material';
+import { Home, Store } from '@mui/icons-material'
+import Navbar from './navbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -19,7 +20,7 @@ const darkTheme = createTheme({
   },
 });
 
-export function PageLayout({ children }) {
+export default function PageLayout({ children }) {
 
   const drawerWidth = 150;
   const { isAuthenticated } = useAuth0();
@@ -65,7 +66,7 @@ export function PageLayout({ children }) {
           color='inherit'
           component={Link}
           to='/home'
-        ><HomeIcon/><Typography ml={3} pt='2px'>Home</Typography></Button>
+        ><Home/><Typography ml={3} pt='2px'>Home</Typography></Button>
         <Button 
           sx={{
             marginLeft: 1,
@@ -75,14 +76,14 @@ export function PageLayout({ children }) {
           color='inherit'
           component={Link}
           to='/market'
-        ><StoreIcon/><Typography ml={3} pt='2px'>Market</Typography></Button>
+        ><Store/><Typography ml={3} pt='2px'>Market</Typography></Button>
         </Drawer>
         
         <Box
           component='main'
           sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
         >
-        <ToolBar />
+        <Toolbar />
           {children}
         </Box>
       </ThemeProvider>

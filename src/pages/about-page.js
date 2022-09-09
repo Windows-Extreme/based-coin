@@ -1,10 +1,14 @@
 import React from "react";
-import ProfileCard from "../ProfileCard";
+import {
+  Typography, 
+  Container, 
+  Box 
+} from "@mui/material";
+import UnsignedLayout from "../components/unsigned-layout";
+import ProfileCard from "../components/profile-card";
 import DevProfiles from "../DevProfiles.json";
-import { UnsignedLayout } from "../components/unsigned-layout";
-import { Grid, Typography, Container, Box } from "@mui/material";
 
-class AboutUs extends React.Component {
+export default class AboutUs extends React.Component {
   profile = DevProfiles.map((value) => {
     return (
       <ProfileCard
@@ -22,7 +26,7 @@ class AboutUs extends React.Component {
     return (
       <>
         <UnsignedLayout>
-          <Container textAlign="center" width={400}>
+          <Container width={400}>
           <Typography align = "center" variant= "h3" gutterBottom >
             Coin Fellows
           </Typography>
@@ -38,5 +42,3 @@ class AboutUs extends React.Component {
     );
   }
 }
-
-export default AboutUs;

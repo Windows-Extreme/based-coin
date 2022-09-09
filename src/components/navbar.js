@@ -1,18 +1,19 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import { LogoutButton } from './navbuttons/logout-button';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box'
+import { useAuth0 } from '@auth0/auth0-react';
+import {
+  Toolbar,
+  Button,
+  Avatar,
+  Menu,
+  IconButton,
+  Tooltip,
+  Box,
+} from '@mui/material';
+import LogoutButton from './navbuttons/logout-button';
 
 
-export const Navbar = () => {
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

@@ -1,10 +1,9 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
+import {MenuItem, ListItemIcon} from '@mui/material'
 import Logout from '@mui/icons-material/Logout';
 
-export const LogoutButton = () => {
+export default function LogoutButton() {
   const { logout } = useAuth0();
 
   const handleLogout = () => {

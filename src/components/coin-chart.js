@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-export class NewChart extends React.Component {
+export default class NewChart extends React.Component {
 
   render() {
     const data = {

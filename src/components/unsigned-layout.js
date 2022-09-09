@@ -1,10 +1,9 @@
 import React from 'react';
-import Box from '@mui/material/Box'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline'
-import AppBar from '@mui/material/AppBar'
-import ToolBar from '@mui/material/Toolbar'
-import { UnsignedNavbar } from './unsigned-navbar';
+import {
+  Box, CssBaseline, AppBar, Toolbar
+} from '@mui/material'
+import UnsignedNavbar from './unsigned-navbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -12,7 +11,7 @@ const darkTheme = createTheme({
   },
 });
 
-export const UnsignedLayout = ({ children }) => {
+export default function UnsignedLayout({ children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <ThemeProvider theme={darkTheme}>
@@ -26,7 +25,7 @@ export const UnsignedLayout = ({ children }) => {
           component='main'
           sx={{ flexGrow: 1, bgcolor: 'background.detault', p: 3 }}
         >
-          <ToolBar />
+          <Toolbar />
           {children}
         </Box>
       </ThemeProvider>

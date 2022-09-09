@@ -1,14 +1,16 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { PageLayout } from '../components/page-layout';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Typography } from '@mui/material';
 import axios from 'axios';
-import { MarketTable } from '../components/market-table';
+import {
+  Typography,
+  Box, 
+  TextField,
+} from '@mui/material';
 import debounce from "lodash/debounce"
+import MarketTable from '../components/market-table';
+import PageLayout from '../components/page-layout';
 
-  export const MarketPage = (props) => {
+export default function MarketPage(props) {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [marketList, setMarketList] = useState(null);
 
