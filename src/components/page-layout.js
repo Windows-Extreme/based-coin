@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import {
   Typography,
@@ -10,8 +10,10 @@ import {
   AppBar,
   Toolbar,
   Button,
+  ListItem,
+  List,
 } from '@mui/material';
-import { Home, Store } from '@mui/icons-material'
+import { Bookmark, Store } from '@mui/icons-material'
 import Navbar from './navbar';
 
 const darkTheme = createTheme({
@@ -22,7 +24,7 @@ const darkTheme = createTheme({
 
 export default function PageLayout({ children }) {
 
-  const drawerWidth = 150;
+  const drawerWidth = 160;
   const { isAuthenticated } = useAuth0();
   return (
     <Box sx={{ display: 'flex' }}>
@@ -56,27 +58,30 @@ export default function PageLayout({ children }) {
           >
           <img src="/logo.svg" alt="logo" height={40}/>
         </Button>
-        
-        <Button
+        <List component='nav'>
+        <ListItem button
           sx={{
             marginLeft: 1,
             marginTop: 2,
             justifyContent: 'start'
           }}
           color='inherit'
-          component={Link}
+          component={NavLink}
           to='/home'
-        ><Home/><Typography ml={3} pt='2px'>Home</Typography></Button>
-        <Button 
+        ><Bookmark/><Typography ml={3} pt='2px'>Watchlist</Typography></ListItem>
+        <ListItem 
+          button
+          color = 'inherit'
           sx={{
             marginLeft: 1,
             marginTop: 2,
-            justifyContent: 'start'
+            justifyContent: 'start',
           }}
-          color='inherit'
-          component={Link}
+          component={NavLink}
+          activeClassName="Mui-selected"
           to='/market'
-        ><Store/><Typography ml={3} pt='2px'>Market</Typography></Button>
+        ><Store/><Typography ml={3} pt='2px'>Market</Typography></ListItem>
+        </List>
         </Drawer>
         
         <Box

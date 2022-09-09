@@ -10,7 +10,8 @@ import {
   CardContent, 
   Chip, 
   Typography,
-  Divider, 
+  Divider,
+  ButtonGroup, 
 } from '@mui/material';
 import numeral from 'numeral';
 import { KeyboardDoubleArrowUp, KeyboardDoubleArrowDown } from '@mui/icons-material'
@@ -55,10 +56,12 @@ export default function CoinPage() {
         <CardContent>
         <Box display='flex'>
         <Typography variant='h4'>{coinData.name}</Typography>
-        <Box display='flex' ml='auto'>
-          <Button size='small' onClick={() => setDays(1)}>24h</Button>
-          <Button size='small' onClick={() => setDays(7)}>7d</Button>
-          <Button size='small' onClick={() => setDays(30)}>30d</Button>
+        <Box ml='auto'>
+          <ButtonGroup>
+            <Button size='small' onClick={() => setDays(1)} variant={days === 1 ? 'contained' : 'outlined'}>24h</Button>
+            <Button size='small' onClick={() => setDays(7)} variant={days === 7 ? 'contained' : 'outlined'}>7d</Button>
+            <Button size='small' onClick={() => setDays(30)} variant={days === 30 ? 'contained' : 'outlined'}>30d</Button>
+          </ButtonGroup>
         </Box>
         </Box>
         <Typography variant='h4' color='#cccccc'>{numeral(coinData.current_price).format('$0,.00')}</Typography>

@@ -26,13 +26,22 @@ export default class AboutUs extends React.Component {
     return (
       <>
         <UnsignedLayout>
-          <Container width={400}>
+          <Container sx={{
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'center'
+          }}>
+          <Box maxWidth={500}>
           <Typography align = "center" variant= "h3" gutterBottom >
             Coin Fellows
           </Typography>
-          <Typography align = "center" variant= "body1" gutterBottom >
-            Here at Coin Fellows, we are pioneering the future of cryptocurrency and blockchain technology. Our mission is to bring ease of access to the world and enable our users with unbiased and accurate data to allow the user to make their own informed decision.We started in 2022 with the radical idea that anyone, anywhere, should be able to easily and securely track Bitcoin and other Crypto assets. Today, we offer a trusted and easy-to-use platform for accessing the broader cryptoeconomy.
+          <Typography align="center" variant= "body1" mb={2} >
+            Here at Coin Fellows, we're making cryptocurrency more accessible to the masses. Our mission is to bring ease of access to the world and enable our users with unbiased and accurate data.
           </Typography>
+          <Typography align="center" variant= "body1" mb={6}>
+            We allow you to make your own informed decisions. We started in 2022 with the idea that anyone, anywhere, should be able to easily and securely track any crypto asset. Today, we offer a trustworthy and easy-to-use platform for accessing the broader cryptoeconomy.
+          </Typography>
+          </Box>
           </Container>
           <Box display="grid" gridTemplateColumns='repeat(auto-fit, minmax(320px, 1fr))' justifyItems='center'>
             {this.profile}
