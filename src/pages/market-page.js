@@ -1,34 +1,29 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { PageLayout } from '../components/page-layout';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Typography } from '@mui/material';
 import axios from 'axios';
-import { MarketTable } from '../components/market-table';
+import {
+  Typography,
+  Box, 
+  TextField,
+} from '@mui/material';
 import debounce from "lodash/debounce"
+import MarketTable from '../components/market-table';
+import PageLayout from '../components/page-layout';
 
-  export const MarketPage = (props) => {
-  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+export default function MarketPage(props) {
+  const { isAuthenticated } = useAuth0();
   const [marketList, setMarketList] = useState(null);
 
   
   const getMarketList = useCallback(async () => {
     try {
-      const accessToken = await getAccessTokenSilently();
-      let response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/market`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+      const response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/market`);
       const responseData = response.data;
-      console.log(responseData)
       setMarketList(responseData);
     } catch (error) {
       console.error(error.message)
     }
-  }, [getAccessTokenSilently])
+  }, [])
 
   useEffect(() => {
     getMarketList();
@@ -36,7 +31,6 @@ import debounce from "lodash/debounce"
 
   const handleSearch = async (e) => {
     try {
-      console.log(e.target.value)
       const params = {
         search: e.target.value
       }
@@ -44,7 +38,6 @@ import debounce from "lodash/debounce"
         getMarketList();
       } else {
         const response = await axios.get(`${process.env.REACT_APP_AUTH0_SERVER_URL}/search`, {params})
-        console.log(response)
         setMarketList(response.data)
       }
     } catch (error) {
@@ -53,24 +46,42 @@ import debounce from "lodash/debounce"
   }
 
 
-  
+  if (!marketList) {
+    return (
+      <PageLayout>
+        <Typography variant='h5' gutterBottom>Market</Typography>
+        <Box
+        sx={{
+          '& > :not(style)': { mb: 1, width: '25ch' },
+        }}>
+        <TextField 
+          id="outlined-basic" 
+          label="Search" 
+          variant="outlined" />
+      </Box>
+      <MarketTable loading={true}/>
+      </PageLayout>
+    )
+  }
 
   return (
-
     isAuthenticated && (    
     <PageLayout>
       <Typography variant='h5' gutterBottom>Market</Typography>
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Name" variant="outlined" onChange={debounce(handleSearch, 500)}/>
-    </Box>
-     <MarketTable data={marketList} handleBookmark={props.handleBookmark} userData={props.userData}/>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { mb: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off">
+        <TextField 
+          id="outlined-basic" 
+          label="Search" 
+          variant="outlined" 
+          onChange={debounce(handleSearch, 500)}/>
+      </Box>
+     <MarketTable loading={false} data={marketList} handleBookmark={props.handleBookmark} userData={props.userData}/>
     </PageLayout>
 
 

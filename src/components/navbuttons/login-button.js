@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 
 
-export const LoginButton = () => {
+export default function LoginButton() {
   const { loginWithRedirect } = useAuth0();
 
   const handleLogin = async () => {

@@ -1,34 +1,34 @@
 [
-    {
-      "_id": 1,
-      "image_url": "/img/RobertProImg.jpg",
-      "name": "Robert Shepley",
-      "description": "A unicorn and a narwhal nuzzling their horns",
-      "linkedin": "https://www.linkedin.com/in/robert-shepley/",
-      "github": "https://github.com/ShepleySound"
-    },
-    {
-      "_id": 2,
-      "image_url": "/img/LuisProImg.jpg",
-      "name": "Luis Rosales",
-      "description": "Mother (or father) rhino with two babies",
-      "linkedin": "https://www.linkedin.com/in/luis-rosales-jr/",
-      "github": "https://github.com/RosalesJr"
-    },
-    {
-      "_id": 3,
-      "image_url": "/img/BrandonProImg.jpg",
-      "name": "Brandon Pitts",
-      "description": "Someone wearing a creepy unicorn head mask",
-      "linkedin": "https://www.linkedin.com/in/brandomoki/",
-      "github": "https://github.com/brandomoki"
-    },
-    {
-      "_id": 4,
-      "image_url": "/img/JunProImg.jpg",
-      "name": "Junyoung Son",
-      "description": "I am a software dev with experience in JavaScript, HTML, CSS, Materials UI, Bootstrap, Github, and Git. I'm transitioning out of the service and have always had a interest in tech, I found an opportunity to learn and here I am! learning to code. I am a very curious person and I've built my own pc and done a lot of the physical building of a computer, but never really understood what goes behind, until now!",
-      "linkedin": "https://www.linkedin.com/in/junyoung-son-g/",
-      "github": "https://github.com/Junyoungson808"
-    }
+  {
+    "_id": 1,
+    "image_url": "/img/RobertProImg.jpg",
+    "name": "Robert Shepley",
+    "description": "Robert Shepley is a software developer with a background in sound design and audio engineering. He has worked for the US Army Bands as a recording and live sound engineer for six years, and is excited to transfer his skills in technical problem solving to the world of software development. He currently lives in Tacoma, WA with his wife and two cats.",
+    "linkedin": "https://www.linkedin.com/in/robert-shepley/",
+    "github": "https://github.com/ShepleySound"
+  },
+  {
+    "_id": 2,
+    "image_url": "/img/LuisProImg.jpg",
+    "name": "Luis Rosales",
+    "description": "Mother (or father) rhino with two babies",
+    "linkedin": "https://www.linkedin.com/in/luis-rosales-jr/",
+    "github": "https://github.com/RosalesJr"
+  },
+  {
+    "_id": 3,
+    "image_url": "/img/BrandonProImg.jpg",
+    "name": "Brandon Pitts",
+    "description": "Someone wearing a creepy unicorn head mask",
+    "linkedin": "https://www.linkedin.com/in/brandomoki/",
+    "github": "https://github.com/brandomoki"
+  },
+  {
+    "_id": 4,
+    "image_url": "/img/JunProImg.jpg",
+    "name": "Junyoung Son",
+    "description": "I am a software dev with experience in JavaScript, HTML, CSS, Materials UI, Bootstrap, Github, and Git. I'm transitioning out of the service and have always had a interest in tech, I found an opportunity to learn and here I am! learning to code. I am a very curious person and I've built my own pc and done a lot of the physical building of a computer, but never really understood what goes behind, until now!",
+    "linkedin": "https://www.linkedin.com/in/junyoung-son-g/",
+    "github": "https://github.com/Junyoungson808"
+  }
 ]

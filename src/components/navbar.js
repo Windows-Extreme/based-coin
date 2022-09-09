@@ -1,15 +1,19 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import { LogoutButton } from './navbuttons/logout-button';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+import { useAuth0 } from '@auth0/auth0-react';
+import {
+  Toolbar,
+  Avatar,
+  Menu,
+  IconButton,
+  Tooltip,
+  Box,
+} from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
+import LogoutButton from './navbuttons/logout-button';
 
-export const Navbar = () => {
+
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -21,16 +25,15 @@ export const Navbar = () => {
   const { user } = useAuth0();
   return (
     <Toolbar>
-      <Button
-        color='inherit'
-        component={Link}
-        to='/about'
-      >Meet the Fellows</Button>
-       <Button
-        color='inherit'
-        component={Link}
-        to='/coins/bitcoin'
-      >Coin</Button>
+      <Box ml={'auto'}>
+      <Tooltip title='Meet the Fellows'>
+        <IconButton
+          color='inherit'
+          component={Link}
+          to='/about'>
+          <InfoIcon/>
+        </IconButton>
+      </Tooltip>
       <Tooltip title='Account'>
         <IconButton
           onClick={handleClick}
@@ -76,6 +79,7 @@ export const Navbar = () => {
       >
         <LogoutButton />
       </Menu>
+      </Box>
     </Toolbar>
   )
 }

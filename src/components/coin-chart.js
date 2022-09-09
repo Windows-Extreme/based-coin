@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
+import numeral from 'numeral';
 
 ChartJS.register(
   CategoryScale,
@@ -24,52 +25,88 @@ ChartJS.register(
   Legend
 );
 
-export class NewChart extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: {
-        labels: this.props.data?.map(item => new Date(item.date)),
-        datasets: [
-          {
-            label: this.props.title,
-            fill: true,
-            pointBackgroundColor: '#aaddaa',
-            pointBorderColor: '#aaddaa',
-            pointRadius: 0,
-            pointHoverRadius: 7,
-            data: this.props.data?.map(item => item.price),
-            borderColor: '#ddaadd',
-            backgroundColor: '#ddaadd',
-          },
-        ]
-      },
-      options: {
+export default class NewChart extends React.Component {
+
+  render() {
+    const data = {
+      datasets: [
+        {
+          fill: true,
+          pointBackgroundColor: '#aaddaa',
+          pointBorderColor: '#aaddaa',
+          pointRadius: 0,
+          pointHoverRadius: 7,
+          data: this.props.data?.map(item => {
+            return {
+              x: item.date,
+              y: item.price,
+            }
+          }),
+          borderColor: '#ddaadd',
+          backgroundColor: '#ddaadd',
+        },
+      ]
+    }
+
+    const options = {
+        responsive: true,
         interaction: {
-          mode: 'nearest',
+          mode: 'index',
           intersect: false,
         },
         scales: {
           xAxis: {
+            alignToPixels: true,
             type: 'time',
+            time: {
+              displayFormats: {
+                hour: 'MMM d - ha'
+              }
+            }
+
+          },
+          yAxis: {
+            ticks: {
+              // Format y axis with dollar values.
+              callback: function(value, index, values) {
+                return numeral(value).format('$0.00a')
+              }
+            }
           }
         },
-        responsive: true,
         plugins: {
           legend: {
-            position: 'top',
+            display: false,
           },
-          title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-          },
+          tooltip: {
+            position: 'nearest',
+            caretPadding: 18,
+            displayColors: false,
+            callbacks: {
+              // Format tooltip with dollar values.
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': '
+                }
+                if (context.parsed.y !== null) {
+                  label += numeral(context.parsed.y).format('$0,.00')
+                }
+                return label;
+              }
+            }
+          }
         },
-      }
+        elements: {
+          point: {
+            // Change hover point on chart to circle.
+            pointStyle: 'circle'
+          }
+        }
     }
-  }
-  render() {
+
     return (
-      <Line options={this.state.options} data={this.state.data} />
+      <Line options={options} data={data} />
     )
   }
 }
