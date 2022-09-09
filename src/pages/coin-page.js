@@ -31,7 +31,6 @@ export const CoinPage = () => {
           }
         });
       const responseData = response.data;
-      // console.log(responseData)
       setCoinData(responseData)
     } catch (error) {
       console.error(error.message)
@@ -40,13 +39,11 @@ export const CoinPage = () => {
 
 
   useEffect(() => {
-    console.log("HELLO")
     getCoinData();
   }, [getCoinData]);
   
   return (
     <PageLayout>
-      {console.log(coinData)}
     {isAuthenticated && coinData && (
       
       <>
